@@ -14,6 +14,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DashboardComponent } from './components/private/alumnos/dashboard/dashboard.component';
 import { IndexComponent } from './components/private/alumnos/index/index.component';
 import { AsideComponent } from './components/private/alumnos/aside/aside.component';
+import { BlogComponent } from './components/blog/blog.component';
 
 
 import {MatToolbarModule} from '@angular/material/toolbar';
@@ -39,6 +40,7 @@ import {MatSelectModule} from '@angular/material/select';
 import { WelcomeComponent } from './components/private/alumnos/welcome/welcome.component';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -53,6 +55,7 @@ import { WelcomeComponent } from './components/private/alumnos/welcome/welcome.c
     IndexComponent,
     AsideComponent,
     WelcomeComponent,
+    BlogComponent,
 
   ],
   imports: [

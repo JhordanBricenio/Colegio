@@ -8,6 +8,7 @@ import { NosotrosComponent } from './components/nosotros/nosotros.component';
 import { DashboardComponent } from './components/private/alumnos/dashboard/dashboard.component';
 import { IndexComponent } from './components/private/alumnos/index/index.component';
 import { WelcomeComponent } from './components/private/alumnos/welcome/welcome.component';
+import { BlogComponent } from './components/blog/blog.component';
 
 const routes: Routes = [
   { path: '', component: InicioComponent, pathMatch: 'full' },
@@ -15,6 +16,7 @@ const routes: Routes = [
   { path: 'eventos', component: EventosComponent, pathMatch: 'full' },
   { path: 'cursos', component: CursosComponent, pathMatch: 'full' },
   { path: 'docentes', component: DocentesComponent, pathMatch: 'full' },
+  { path: 'blog', component: BlogComponent, pathMatch: 'full' },
   {
     path: 'alumnos', component: DashboardComponent,
     children: [
