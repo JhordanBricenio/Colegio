@@ -38,6 +38,7 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatNativeDateModule} from '@angular/material/core';
 import {MatSelectModule} from '@angular/material/select';
 import { WelcomeComponent } from './components/private/alumnos/welcome/welcome.component';
+import { ContactanosComponent } from './components/contactanos/contactanos.component';
 
 
 
@@ -56,6 +57,7 @@ import { WelcomeComponent } from './components/private/alumnos/welcome/welcome.c
     AsideComponent,
     WelcomeComponent,
     BlogComponent,
+    ContactanosComponent,
 
   ],
   imports: [

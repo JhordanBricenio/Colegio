@@ -1,59 +1,3 @@
-<div class="modal fade" id="reg-box" tabindex="-1" role="dialog">
-    <div class="modal-dialog">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <div class="modal-content">
-            <!--SIGNIN AS USER START-->
-            <div class="user-box">
-                <h2>Sign up as a User</h2>
-                <!--FORM FIELD START-->
-                <div class="form">
-                    <div class="input-container">
-                        <input type="text" placeholder="Name">
-                        <i class="fa fa-user"></i>
-                    </div>
-                    <div class="input-container">
-                        <input type="text" placeholder="E-mail">
-                        <i class="fa fa-envelope-o"></i>
-                    </div>
-                    <div class="input-container">
-                        <input type="password" placeholder="Password">
-                        <i class="fa fa-unlock"></i>
-                    </div>
-                    <div class="input-container">
-                        <label>
-                            <span class="radio">
-                                <input type="checkbox" name="foo" value="1" checked>
-                                <span class="radio-value" aria-hidden="true"></span>
-                            </span>
-                            <span>Remember me</span>
-                        </label>
-                    </div>
-                    <div class="input-container">
-                        <button class="btn-style">Sign Up</button>
-                    </div>
-                </div>
-                <!--FORM FIELD END-->
-                <!--OPTION START-->
-                <!--<div class="option">
-                    <h5>Or Using</h5>
-                </div>-->
-                <!--OPTION END-->
-                <!--OPTION START-->
-                <!--<div class="social-login">
-                    <a href="#" class="google"><i class="fa fa-google-plus"></i>Google Account</a>
-                    <a href="#" class="facebook"><i class="fa fa-facebook"></i>Facebook Account</a>
-                </div>-->
-                <!--OPTION END--> 
-            </div>
-            <!--SIGNIN AS USER END-->
-            <div class="user-box-footer">
-             <a href="#">Iniciar Sesión</a>
-            </div>
-            <div class="clearfix"></div>
-        </div>
-        <div class="clearfix"></div>
-    </div>
-</div>
 
 <div class="modal fade" id="signin-box" tabindex="-1" role="dialog">
     <div class="modal-dialog">
@@ -64,11 +8,11 @@
                 <!--FORM FIELD START-->
                 <div class="form">
                     <div class="input-container">
-                        <input type="text" placeholder="E-mail">
+                        <input type="text" placeholder="Correo ">
                         <i class="fa fa-envelope-o"></i>
                     </div>
                     <div class="input-container">
-                        <input type="password" placeholder="Password">
+                        <input type="password" placeholder="Contraseña">
                         <i class="fa fa-unlock"></i>
                     </div>
                     <div class="input-container">
@@ -84,24 +28,7 @@
                         <button class="btn-style">Iniciar Sesión</button>
                     </div>
                 </div>
-                <!--FORM FIELD END-->
-                <!--OPTION START
-                <div class="option">
-                    <h5>Or Using</h5>
-                </div>-->
-                <!--OPTION END-->
-                <!--OPTION START
-                <div class="social-login">
-                    <a href="#" class="google"><i class="fa fa-google-plus"></i>Google Account</a>
-                    <a href="#" class="facebook"><i class="fa fa-facebook"></i>Facebook Account</a>
-                </div>-->
-                
-            
             </div>
-            <!--OPTION END
-            <div class="user-box-footer">
-                <p>Don't have an account?<br><a href="#">Sign up as a User</a></p>
-            </div>-->
             <div class="clearfix"></div>
         </div>
         <div class="clearfix"></div>
@@ -119,41 +46,14 @@
         <div class="widget widget-search">
             <h2>Buscar curso</h2>
             <form>
-                <input type="search" placeholder="Keyword...">
+                <input type="search" placeholder="Palabra clave...">
             </form>
         </div>
         <!--KF_SIDEBAR_SEARCH_WRAP END-->
 
-        <!--KF_SIDEBAR_ARCHIVE_WRAP START-->
-        <div class="widget widget-archive ">
-            <h2>Archivos</h2>
-            <ul class="sidebar_archive_des">
-                <li>
-                    <a href=""><i class="fa fa-angle-right"></i>January 2016</a>
-                </li>
-                <li>
-                    <a href=""><i class="fa fa-angle-right"></i>February 2016</a>
-                </li>
-                <li>
-                    <a href=""><i class="fa fa-angle-right"></i>March 2016</a>
-                </li>
-                <li>
-                    <a href=""><i class="fa fa-angle-right"></i>April 2016</a>
-                </li>
-                <li>
-                    <a href=""><i class="fa fa-angle-right"></i>May 2016</a>
-                </li>
-                <li>
-                    <a href=""><i class="fa fa-angle-right"></i>June 2016</a>
-                </li>
-                <li>
-                    <a href=""><i class="fa fa-angle-right"></i>August 2016</a>
-                </li>
-            </ul>
-        </div>
-        <!--KF_SIDEBAR_ARCHIVE_WRAP END-->
+        <h3 class="copy-right-sidr">Diseñado  y Desarrollado por ENCYQL @Todos los derechos reservados por ARAS</h3>
 
-        <p class="copy-right-sidr">Design and Developed by KodeForest @ All Rights Reserved by KodeForest</p>
+       
     </div>
 </div>
 
@@ -181,13 +81,11 @@
                         </div>
                     </div>-->
                     <ul class="login_wrap">
-                        <li><a href="#" data-toggle="modal" data-target="#reg-box"><i class="fa fa-user"></i>Registro</a></li>
                         <li><a href="#" data-toggle="modal" data-target="#signin-box"><i class="fa fa-sign-in"></i>Inicia sesión</a></li>
                     </ul>	    					
                     <ul class="top_nav">
                         <li><a href="blog-detail.html">Noticia</a></li>
                         <li><a href="event-detail.html">Evento</a></li>
-                        <li><a href="contactus.html">contáctenos</a></li>
                     </ul>
                 </div>
             </div>
@@ -217,7 +115,7 @@
                                 
                             </li>
                             <li><a [routerLink]="['/blog']">Blog</a></li>
-                            <li><a [routerLink]="['/cursos']">Curso</a>
+                            <li><a [routerLink]="['/cursos']">Talleres</a>
                                 <ul>
                                     <li><a href="our-courses.html">Our Course</a></li>
                                     <li><a href="courses-list.html">Course List</a></li>
@@ -226,7 +124,7 @@
                             </li>
                             <li><a [routerLink]="['/docentes']">Profesores</a>
                                 <ul>
-                                    <li><a href="our-teacher.html">Our Teacher</a></li>
+                                    <li><a href="our-teacher.html">Nuestros profesores</a></li>
                                     <li><a href="our-teacher-details.html">our teacher details</a></li>
                                 </ul>
                             </li>
@@ -243,20 +141,18 @@
                                     <li><a href="404.html">404 Page</a></li>
                                 </ul>
                             </li>-->
-                            <li><a href="#">Contáctenos</a>
-                                <ul>
-                                    <li><a href="contactus.html">Contact Us 1</a></li>
-                                    <li><a href="contactus-2.html">Contact Us 2</a></li>
-                                </ul>
+                            <li>
+                                <a [routerLink]="['/contactanos']">Contáctenos</a>
+
                             </li>
                             <li><a id="simple-menu" href="#sidr"><i class="fa fa-bars"></i></a></li>
                         </ul>
                         <!--DL Menu Start-->
                         <div id="kode-responsive-navigation" class="dl-menuwrapper">
-                            <button class="dl-trigger">Open Menu</button>
+                            <button class="dl-trigger">ABRIR MENÚ</button>
                             <ul class="dl-menu">
-                                <li><a href="index.html">home</a></li>
-                                <li><a href="about-us.html">about us</a></li>
+                                <li><a href="index.html">INICIO</a></li>
+                                <li><a href="about-us.html">ACERCA DE NOSOTROS</a></li>
                                 <li class="menu-item kode-parent-menu"><a href="#">Event</a>
                                     <ul class="dl-submenu">
                                        <li><a href="our-event.html">our Event</a></li>
@@ -274,14 +170,14 @@
                                         <li><a href="blog-detail.html">blog-detail</a></li>
                                     </ul>
                                 </li>
-                                <li class="menu-item kode-parent-menu"><a href="#">Course</a>
+                                <li class="menu-item kode-parent-menu"><a href="#">TALLERES</a>
                                     <ul class="dl-submenu">
                                         <li><a href="our-courses.html">Our Course</a></li>
                                         <li><a href="courses-list.html">Course List</a></li>
                                         <li><a href="courses-detail.html">Course Detail</a></li>
                                     </ul>
                                 </li>
-                                <li class="menu-item kode-parent-menu"><a href="#">Teacher</a>
+                                <li class="menu-item kode-parent-menu"><a href="#">PROFESORES</a>
                                     <ul class="dl-submenu">
                                         <li><a href="our-teacher.html">Our Teacher</a></li>
                                         <li><a href="our-teacher-details.html">our teacher details</a></li>
@@ -300,11 +196,7 @@
                                         <li><a href="404.html">404 Page</a></li>
                                     </ul>
                                 </li>
-                                <li class="menu-item kode-parent-menu"><a href="#">Contact US</a>
-                                    <ul class="dl-submenu">
-                                        <li><a href="contactus.html">Contact Us 1</a></li>
-                                        <li><a href="contactus-2.html">Contact Us 2</a></li>
-                                    </ul>
+                                <li class="menu-item kode-parent-menu"><a [routerLink]="['/contactanos']">Contact US</a>
                                 </li>
                             </ul>
                         </div>
