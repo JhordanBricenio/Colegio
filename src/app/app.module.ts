@@ -15,6 +15,7 @@ import { DashboardComponent } from './components/private/alumnos/dashboard/dashb
 import { IndexComponent } from './components/private/alumnos/index/index.component';
 import { AsideComponent } from './components/private/alumnos/aside/aside.component';
 import { BlogComponent } from './components/blog/blog.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 import {MatToolbarModule} from '@angular/material/toolbar';
@@ -63,6 +64,7 @@ import { ContactanosComponent } from './components/contactanos/contactanos.compo
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
     BrowserAnimationsModule,
     MatToolbarModule,
     MatIconModule,

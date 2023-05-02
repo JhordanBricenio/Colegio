@@ -7,4 +7,16 @@ import { Component } from '@angular/core';
 })
 export class DocentesComponent {
 
+  constructor() { }
+
+  ngOnInit(): void {
+    
+    
+    
+  }
+
+
+
+
+
 }
