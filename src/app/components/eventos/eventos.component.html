@@ -41,14 +41,14 @@
                 <div *ngFor="let item of event" class="col-md-6">
                     <div class="edu2_event_wrap">
                         <div class="edu2_event_des">
-                            <h4>Dec</h4>
+                            <h4>{{item.date| date:"MMM"}}</h4>
                             <p>{{item.name}}</p>
                             <ul class="post-option">
-                                    <li>By<a href="#">Admin</a>{{item.date}}</li>
-                                    <li>21<a href="#">Comments</a></li>
+                                    <li>{{item.place}}-{{item.status}}</li>    
                             </ul>
-                            <a href="#" class="readmore">LEER MÁS<i class="fa fa-long-arrow-right"></i></a>
-                            <span>24</span>
+                            <li class="mb-2">Informes: <a href="#">{{item.link}}</a></li>
+                            <a href="#" class="readmore mb-2">LEER MÁS<i class="fa fa-long-arrow-right"></i></a>
+                            <span>{{item.date| date:"dd"}}</span>
                         </div>
                             
                         <figure><img src="assets/extra-images/event1.jpg" alt=""/>
