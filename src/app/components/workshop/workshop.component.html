@@ -1,0 +1,114 @@
+
+<app-header></app-header>
+<div class="kf_inr_banner padding_more">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <!--KF INR BANNER DES Wrap Start-->
+                <div class="kf_inr_ban_des">
+                    <div class="inr_banner_heading">
+                        <h3>NUESTROS TALLERES</h3>
+                    </div>
+
+                    <div class="kf_inr_breadcrumb">
+                        <ul>
+                            <li><a href="#">INICIO</a></li>
+                            <li><a href="#">NUESTROS TALLERES</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <!--KF INR BANNER DES Wrap End-->
+            </div>
+
+        </div>
+    </div>
+</div>
+<div class="kf_content_wrap overflow_visible">
+    <div class="search_bar_outer_wrap">
+        <div class="container">
+            <div class="inr_pg_search_wrap">
+                <form>
+                    <div class="search_bar_des">
+                        <input type="search" placeholder="Search workshops"/>
+                    </div>
+                    <button>BUSCAR AHORA</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!--search bar end-->
+     <section>
+         <div class="container">
+
+             <div class="row">
+                 <div *ngFor="let item of workshops" class="col-md-4 col-sm-6">
+
+                     <!--EDU2 COLUM 3 Wrap Start-->
+                     <div class="edu2_col_3_wrap">
+                         <figure>
+                             <img src="assets/extra-images/col-3-thum1.jpg" alt=""/>
+                             <figcaption><a href="#"><i class="fa fa-play"></i></a></figcaption>
+                         </figure>
+
+                         <!--EDU2 COLUM 3 Des Start-->
+                         <div class="edu2_col_3_des">
+                             <h6>{{item.name}}</h6>
+                             <p>{{item.description}} </p>
+                             <div class="video_link_wrap">
+                                 <a href="#">Video Tutorials</a>
+                                 <span><mat-icon>alarm</mat-icon>{{item.hours}}</span>
+                             </div>
+
+                             <!--EDU2 COLUM 3 Ftr Start-->
+                             <div class="edu2_col_3_ftr">
+                                 <figure><img src="assets/extra-images/col_3_des1.jpg" alt=""/></figure>
+                                 <a href="#">{{item.user.name}}</a>
+                                 <div class="rating">
+                                    <span>☆</span>
+                                    <span>☆</span>
+                                    <span>☆</span>
+                                    <span>☆</span>
+                                    <span>☆</span>
+                                </div>
+                             </div>
+                             <!--EDU2 COLUM 3 Ftr End-->
+                         </div>
+                         <!--EDU2 COLUM 3 Des End-->
+
+
+                     </div>
+                     <!--EDU2 COLUM 3 Wrap End-->
+
+                 </div>
+
+
+                 <div class="col-md-12">
+                     <!--KF_PAGINATION_WRAP START-->
+                    <div class="kf_edu_pagination_wrap">
+                        <ul class="pagination">
+                            <li>
+                                <a href="#" aria-label="Previous">
+                                <span aria-hidden="true"><i class="fa fa-angle-left"></i>PREV</span>
+                                </a>
+                            </li>
+                            <li class="active"><a href="#">1</a></li>
+                            <li><a href="#">2</a></li>
+                            <li><a href="#">3</a></li>
+                            <li><a href="#">4</a></li>
+                            <li><a href="#">5</a></li>
+                            <li>
+                                <a href="#" aria-label="Next">
+                                <span aria-hidden="true">Next<i class="fa fa-angle-right"></i></span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <!--KF_PAGINATION_WRAP END-->
+                 </div>
+
+             </div>
+         </div>
+     </section>
+</div>
+<app-footer></app-footer>
+

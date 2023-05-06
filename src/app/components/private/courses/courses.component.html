@@ -1,0 +1,17 @@
+<div *ngIf="course">
+    <div *ngFor="let item of course.courses"  class="col-md-4 " [routerLink]="'/docentes/alumnos/'+item.id"  style="cursor: pointer;">
+        <mat-card   class="example-card mt-5">
+            <mat-card-header>
+              <mat-card-subtitle>Curso</mat-card-subtitle>
+              <mat-card-title>{{item.name}}</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+              <p>{{item.description}}</p>
+              <mat-divider></mat-divider>
+            </mat-card-content>
+            <mat-card-footer>
+              <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+            </mat-card-footer>
+        </mat-card>    
+    </div>
+</div>

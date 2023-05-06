@@ -12,4 +12,8 @@ export class CourseService {
   constructor(private _http: HttpClient) {
     this.url=GLOBAL.url;
   }
+
+  getCourseId(id:string){
+    return this._http.get(this.url+'courses/'+id);
+  }
 }

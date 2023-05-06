@@ -1,0 +1,15 @@
+.example-card {
+    max-width: 300px;
+    margin: 10px;
+    border-radius: 5px;
+    background-color: #ebeff3;
+    padding: 10px;
+  }
+mat-card-header{
+    background-color: #aed2f5;
+    padding: 10px;
+}
+mat-card-content{
+    background-color: #eebf85;
+    padding: 10px;
+}

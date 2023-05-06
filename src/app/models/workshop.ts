@@ -6,5 +6,5 @@ export class Workshop {
     description: string;
     hours: number;
     photo: number;
-     user: User;
+    user: User;
 }

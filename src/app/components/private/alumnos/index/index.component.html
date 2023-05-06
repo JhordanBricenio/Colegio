@@ -1,1 +1,23 @@
-<p>index works!</p>
+<table class="table" *ngIf="course">
+    <thead>
+      <tr>
+        <th>Nombre</th>
+        <th>Apellido</th>
+        <th>Asistencia</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let alumno of course.users">
+        <td>{{alumno.name}}</td>
+        <td>{{alumno.lastname}}</td>
+        <td>
+          <div class="btn-group" role="group">
+            <button type="button" class="btn btn-success" (click)="marcarAsistencia(alumno, 'presente')">Presente</button>
+            <button type="button" class="btn btn-warning" (click)="marcarAsistencia(alumno, 'tardanza')">Tardanza</button>
+            <button type="button" class="btn btn-danger" (click)="marcarAsistencia(alumno, 'falto')">Falto</button>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  

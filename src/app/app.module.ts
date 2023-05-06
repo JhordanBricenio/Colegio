@@ -11,9 +11,9 @@ import { EventosComponent } from './components/eventos/eventos.component';
 import { CursosComponent } from './components/cursos/cursos.component';
 import { DocentesComponent } from './components/docentes/docentes.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { DashboardComponent } from './components/private/alumnos/dashboard/dashboard.component';
+import { DashboardComponent } from './components/private/dashboard/dashboard.component';
 import { IndexComponent } from './components/private/alumnos/index/index.component';
-import { AsideComponent } from './components/private/alumnos/aside/aside.component';
+import { AsideComponent } from './components/private/aside/aside.component';
 import { BlogComponent } from './components/blog/blog.component';
 import { HttpClientModule } from '@angular/common/http';
 import { DatePipe } from '@angular/common';
@@ -39,9 +39,13 @@ import { MatListModule} from '@angular/material/list';
 import {MatButtonModule} from '@angular/material/button';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatNativeDateModule} from '@angular/material/core';
+import {MatTableModule} from '@angular/material/table';
 import {MatSelectModule} from '@angular/material/select';
-import { WelcomeComponent } from './components/private/alumnos/welcome/welcome.component';
+import { WelcomeComponent } from './components/private/welcome/welcome.component';
 import { ContactanosComponent } from './components/contactanos/contactanos.component';
+import { WorkshopComponent } from './components/workshop/workshop.component';
+import { DegreeComponent } from './components/private/degree/degree.component';
+import { CoursesComponent } from './components/private/courses/courses.component';
 
 
 
@@ -61,6 +65,9 @@ import { ContactanosComponent } from './components/contactanos/contactanos.compo
     WelcomeComponent,
     BlogComponent,
     ContactanosComponent,
+    WorkshopComponent,
+    DegreeComponent,
+    CoursesComponent,
 
   ],
   imports: [
@@ -88,6 +95,7 @@ import { ContactanosComponent } from './components/contactanos/contactanos.compo
     MatSelectModule,
     MatChipsModule,
     MatRippleModule,
+    MatTableModule
 
   ],
   providers: [
