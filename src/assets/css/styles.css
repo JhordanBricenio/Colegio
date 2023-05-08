@@ -11808,7 +11808,7 @@ html[dir="rtl"] [direction="rtl"][data-sidebar-style="compact"]:not([data-layout
     transform: rotate(0); } }
 
 .dlabnav {
-  width: 20.5rem;
+  width: 30.5rem;
   padding-bottom: 0;
   height: calc(100% - 135px);
   position: absolute;

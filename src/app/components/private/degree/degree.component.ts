@@ -17,6 +17,8 @@ export class DegreeComponent {
     this.degreeService.getDegrees().subscribe(
       response=>{
         this.degrees = response;
+        console.log(this.degrees);
+        
       }
     );
     

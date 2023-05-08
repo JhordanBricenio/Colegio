@@ -1,0 +1,60 @@
+<div class="content-body">
+  <div class="container-fluid">
+    <div class="row page-titles">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item active"><a href="javascript:void(0)">Tabla</a></li>
+        <li class="breadcrumb-item"><a href="javascript:void(0)">Alumnos</a></li>
+      </ol>
+    </div>
+    <!-- row -->
+
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="card">
+          <div class="card-header">
+            <h4 class="card-title" *ngIf="course">Cursos de {{course.name}}</h4>
+          </div>
+          <div class="card-body">
+            <div class="table-responsive">
+              <table class="table table-responsive-md" *ngIf="course">
+                <thead>
+                  <tr>
+                    <th style="width:80px;"><strong>#</strong></th>
+                    <th><strong>NOMBRES</strong></th>
+                    <th><strong>APELLIDOS</strong></th>
+                    <th><strong>DNI</strong></th>
+                    <th><strong>ASISTENCIA</strong></th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let alumno of course.users">
+                    <td><strong>{{alumno.id}}</strong></td>
+                    <td>{{alumno.name}}</td>
+                    <td>{{alumno.lastname}}</td>
+                    <td>{{alumno.dni}}</td>
+                    <td>
+                      <form>
+                        <div class="mb-3 mb-0">
+                          <label class="radio-inline me-3"><input type="radio" name="optradio">
+                            <font _mstmutation="1" _msttexthash="104260" _msthash="312"> Asistió</font>
+                          </label>
+                          <label class="radio-inline me-3"><input type="radio" name="optradio">
+                            <font _mstmutation="1" _msttexthash="104429" _msthash="313"> Faltó</font>
+                          </label>
+                          <label class="radio-inline me-3"><input type="radio" name="optradio">
+                            <font _mstmutation="1" _msttexthash="104598" _msthash="314"> Tandanza</font>
+                          </label>
+                        </div>
+                      </form>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

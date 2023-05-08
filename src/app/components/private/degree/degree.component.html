@@ -1,16 +1,94 @@
-<div  *ngFor="let item of degrees" class="col-md-4 " [routerLink]="'/docentes/degrees/'+item.id" style="cursor: pointer;">
-    <mat-card   class="example-card mt-5">
-        <mat-card-header>
-          <mat-card-subtitle>Grado</mat-card-subtitle>
-          <mat-card-title>{{item.name}}</mat-card-title>
-        </mat-card-header>
-        <mat-card-content>
-          <p>{{item.description}}</p>
-          <mat-divider></mat-divider>
-        </mat-card-content>
-        <mat-card-footer>
-          <mat-progress-bar mode="indeterminate"></mat-progress-bar>
-        </mat-card-footer>
-    </mat-card>
-      
+
+<div class="content-body">
+  <!-- row -->
+<div class="container-fluid">
+<div class="row invoice-card-row">
+<div *ngFor="let item of degrees" [routerLink]="'/admin/courses/'+item.id" style="cursor: pointer;" class="col-xl-3 col-xxl-3 col-sm-6">
+  <div class="card  invoice-card"  [ngClass]="'bg-'+ item.color">
+    <div class="card-body d-flex">
+      <div class="icon me-3">
+        <mat-icon style="color: aliceblue;">school</mat-icon>        
+      </div>
+      <div>
+        <h2 class="text-white invoice-num">2478</h2>
+        <span class="text-white fs-18">{{item.name}}</span>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+<div class="row">
+<div class="col-xl-3 col-xxl-5">
+  <div class="card">
+    <div class="card-header pb-0 border-0">
+      <div>
+        <h4 class="card-title mb-2">Activity</h4>
+        <h2 class="mb-0">$78120</h2>
+      </div>
+      <ul class="card-list">
+        <li class="justify-content-end">Income<span class="bg-success circle me-0 ms-2"></span></li>
+        <li class="justify-content-end">Outcome<span class="bg-danger circle me-0 ms-2"></span></li>
+      </ul>
+    </div>
+    <div class="card-body pb-0 pt-3">
+      <div id="chartBar" class="bar-chart"></div>
+    </div>
+  </div>
+</div>
+<div class="col-xl-3 col-xxl-7">
+  <div class="card">
+    <div class="card-header border-0 pb-0">
+      <div>
+        <h4 class="card-title mb-2">Quick Transfer</h4>
+        <span class="fs-12">Lorem ipsum dolor sit amet, consectetur</span>
+      </div>
+      <div class="dropdown">
+        <a href="javascript:void(0);" class="btn-link" data-bs-toggle="dropdown" aria-expanded="false">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 13C12.5523 13 13 12.5523 13 12C13 11.4477 12.5523 11 12 11C11.4477 11 11 11.4477 11 12C11 12.5523 11.4477 13 12 13Z" stroke="#575757" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+            <path d="M12 6C12.5523 6 13 5.55228 13 5C13 4.44772 12.5523 4 12 4C11.4477 4 11 4.44772 11 5C11 5.55228 11.4477 6 12 6Z" stroke="#575757" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+            <path d="M12 20C12.5523 20 13 19.5523 13 19C13 18.4477 12.5523 18 12 18C11.4477 18 11 18.4477 11 19C11 19.5523 11.4477 20 12 20Z" stroke="#575757" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+          </svg>
+        </a>
+        <div class="dropdown-menu dropdown-menu-right">
+          <a class="dropdown-item" href="javascript:void(0);">Delete</a>
+          <a class="dropdown-item" href="javascript:void(0);">Edit</a>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">	
+      <div class="user-bx">
+        <img src="assets/images/profile/small/pic1.jpg" alt="">
+        <div>
+          <h6 class="user-name">Samuel</h6>
+          <span class="meta">@sam224</span>
+        </div>
+        <i class="las la-check-circle check-icon"></i>
+      </div>
+      <h4 class="mt-3 mb-3">Recent Friend<a href="javascript:void(0);" class="fs-16 float-end text-secondary font-w600">See More</a></h4>
+      <ul class="user-list">
+        <li><img src="assets/images/avatar/1.jpg" alt=""></li>
+        <li><img src="assets/images/avatar/2.jpg" alt=""></li>
+        <li><img src="assets/images/avatar/3.jpg" alt=""></li>
+        <li><img src="assets/images/avatar/4.jpg" alt=""></li>
+        <li><img src="assets/images/avatar/5.jpg" alt=""></li>
+        <li><img src="assets/images/avatar/6.jpg" alt=""></li>
+      </ul>
+      <h4 class="mt-3 mb-0">Insert Amount</h4>
+      <div class="format-slider">
+                          <input class="form-control amount-input"  title="Formatted number" id="input-format">
+                          <div id="slider-format"></div>
+                      </div>
+      <div class="text-secondary fs-16 d-flex justify-content-between font-w600 mt-4">
+        <span>Your Balance</span>
+        <span>$ 456,345.62</span>
+      </div>
+    </div>
+    <div class="card-footer border-0 pt-0">
+      <a href="javascript:void(0);" class="btn btn-primary d-block btn-lg text-uppercase">Transfer Now</a>
+    </div>
+  </div>
+</div>
+</div>
+  </div>
 </div>

@@ -1,17 +1,173 @@
-<div *ngIf="course">
-    <div *ngFor="let item of course.courses"  class="col-md-4 " [routerLink]="'/docentes/alumnos/'+item.id"  style="cursor: pointer;">
-        <mat-card   class="example-card mt-5">
-            <mat-card-header>
-              <mat-card-subtitle>Curso</mat-card-subtitle>
-              <mat-card-title>{{item.name}}</mat-card-title>
-            </mat-card-header>
-            <mat-card-content>
-              <p>{{item.description}}</p>
-              <mat-divider></mat-divider>
-            </mat-card-content>
-            <mat-card-footer>
-              <mat-progress-bar mode="indeterminate"></mat-progress-bar>
-            </mat-card-footer>
-        </mat-card>    
+<div class="content-body">
+  <div class="container-fluid">
+    <div class="row page-titles">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item active"><a href="javascript:void(0)">Tabla</a></li>
+        <li class="breadcrumb-item"><a href="javascript:void(0)">Cursos</a></li>
+      </ol>
     </div>
+    <!-- row -->
+
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="card">
+          <div class="card-header">
+            <h4 class="card-title">Cursos de {{course.name}}</h4>
+          </div>
+          <div class="card-body">
+            <div class="table-responsive">
+              <table class="table table-responsive-md">
+                <thead>
+                  <tr>
+                    <th style="width:80px;"><strong>#</strong></th>
+                    <th><strong>NOMBRE</strong></th>
+                    <th><strong>DESCRIPCIÓN</strong></th>
+                    <th><strong>FECHA</strong></th>
+                    <th><strong>ESTADO</strong></th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let item of course.courses" [routerLink]="'/admin/alumnos/'+item.id"  style="cursor: pointer;">
+                    <td><strong>{{item.id}}</strong></td>
+                    <td>{{item.name}}</td>
+                    <td>{{item.description}}</td>
+                    <td>2022-01-01</td>
+                    <td><span class="badge light badge-success">Activo</span></td>
+                    <!--<td>
+                      <div class="dropdown">
+                        <button type="button" class="btn btn-success light sharp" data-bs-toggle="dropdown">
+                          <svg width="20px" height="20px" viewBox="0 0 24 24" version="1.1">
+                            <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                              <rect x="0" y="0" width="24" height="24" />
+                              <circle fill="#000000" cx="5" cy="12" r="2" />
+                              <circle fill="#000000" cx="12" cy="12" r="2" />
+                              <circle fill="#000000" cx="19" cy="12" r="2" />
+                            </g>
+                          </svg>
+                        </button>
+                        <div class="dropdown-menu">
+                          <a class="dropdown-item" href="#">Edit</a>
+                          <a class="dropdown-item" href="#">Delete</a>
+                        </div>
+                      </div>
+                    </td>-->
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-12">
+        <div class="card">
+          <div class="card-header">
+            <h4 class="card-title">Exam Toppers</h4>
+          </div>
+          <div class="card-body">
+            <div class="table-responsive">
+              <table class="table table-responsive-md">
+                <thead>
+                  <tr>
+                    <th style="width:50px;">
+                      <div class="form-check custom-checkbox checkbox-success check-lg me-3">
+                        <input type="checkbox" class="form-check-input" id="checkAll" required="">
+                        <label class="form-check-label" for="checkAll"></label>
+                      </div>
+                    </th>
+                    <th><strong>ROLL NO.</strong></th>
+                    <th><strong>NAME</strong></th>
+                    <th><strong>Email</strong></th>
+                    <th><strong>Date</strong></th>
+                    <th><strong>Status</strong></th>
+                    <th><strong></strong></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <div class="form-check custom-checkbox checkbox-success check-lg me-3">
+                        <input type="checkbox" class="form-check-input" id="customCheckBox2" required="">
+                        <label class="form-check-label" for="customCheckBox2"></label>
+                      </div>
+                    </td>
+                    <td><strong>542</strong></td>
+                    <td>
+                      <div class="d-flex align-items-center"><img src="images/avatar/1.jpg" class="rounded-lg me-2"
+                          width="24" alt="" /> <span class="w-space-no">Dr. Jackson</span></div>
+                    </td>
+                    <td>example@example.com </td>
+                    <td>01 August 2020</td>
+                    <td>
+                      <div class="d-flex align-items-center"><i class="fa fa-circle text-success me-1"></i> Successful
+                      </div>
+                    </td>
+                    <td>
+                      <div class="d-flex">
+                        <a href="#" class="btn btn-primary shadow btn-xs sharp me-1"><i
+                            class="fas fa-pencil-alt"></i></a>
+                        <a href="#" class="btn btn-danger shadow btn-xs sharp"><i class="fa fa-trash"></i></a>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="form-check custom-checkbox checkbox-success check-lg me-3">
+                        <input type="checkbox" class="form-check-input" id="customCheckBox3" required="">
+                        <label class="form-check-label" for="customCheckBox3"></label>
+                      </div>
+                    </td>
+                    <td><strong>542</strong></td>
+                    <td>
+                      <div class="d-flex align-items-center"><img src="images/avatar/2.jpg" class="rounded-lg me-2"
+                          width="24" alt="" /> <span class="w-space-no">Dr. Jackson</span></div>
+                    </td>
+                    <td>example@example.com </td>
+                    <td>01 August 2020</td>
+                    <td>
+                      <div class="d-flex align-items-center"><i class="fa fa-circle text-danger me-1"></i> Canceled
+                      </div>
+                    </td>
+                    <td>
+                      <div class="d-flex">
+                        <a href="#" class="btn btn-primary shadow btn-xs sharp me-1"><i
+                            class="fas fa-pencil-alt"></i></a>
+                        <a href="#" class="btn btn-danger shadow btn-xs sharp"><i class="fa fa-trash"></i></a>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="form-check custom-checkbox checkbox-success check-lg me-3">
+                        <input type="checkbox" class="form-check-input" id="customCheckBox4" required="">
+                        <label class="form-check-label" for="customCheckBox4"></label>
+                      </div>
+                    </td>
+                    <td><strong>542</strong></td>
+                    <td>
+                      <div class="d-flex align-items-center"><img src="images/avatar/3.jpg" class="rounded-lg me-2"
+                          width="24" alt="" /> <span class="w-space-no">Dr. Jackson</span></div>
+                    </td>
+                    <td>example@example.com </td>
+                    <td>01 August 2020</td>
+                    <td>
+                      <div class="d-flex align-items-center"><i class="fa fa-circle text-warning me-1"></i> Pending
+                      </div>
+                    </td>
+                    <td>
+                      <div class="d-flex">
+                        <a href="#" class="btn btn-primary shadow btn-xs sharp me-1"><i
+                            class="fas fa-pencil-alt"></i></a>
+                        <a href="#" class="btn btn-danger shadow btn-xs sharp"><i class="fa fa-trash"></i></a>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

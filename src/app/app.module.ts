@@ -12,7 +12,7 @@ import { CursosComponent } from './components/cursos/cursos.component';
 import { DocentesComponent } from './components/docentes/docentes.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DashboardComponent } from './components/private/dashboard/dashboard.component';
-import { IndexComponent } from './components/private/alumnos/index/index.component';
+import { IndexComponent as IndexAlumnosComponent } from './components/private/alumnos/index/indexAlumnos.component';
 import { AsideComponent } from './components/private/aside/aside.component';
 import { BlogComponent } from './components/blog/blog.component';
 import { HttpClientModule } from '@angular/common/http';
@@ -60,7 +60,7 @@ import { CoursesComponent } from './components/private/courses/courses.component
     CursosComponent,
     DocentesComponent,
     DashboardComponent,
-    IndexComponent,
+    IndexAlumnosComponent,
     AsideComponent,
     WelcomeComponent,
     BlogComponent,
