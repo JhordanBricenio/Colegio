@@ -19,4 +19,14 @@ export class BlogService {
   getBlogs():Observable<Blog[]>{
     return this._http.get<Blog[]>(this.url+'blog');
   }
+  savePost(blog){
+    return this._http.post(this.url+'blog',blog);
+
+  }
+  getTags():Observable<any>{
+    return this._http.get<any>(this.url+'tag');
+  }
+  getPorId(id):Observable<Blog>{
+    return this._http.get<Blog>(this.url+'blog/'+id);
+  }
 }

@@ -1,0 +1,63 @@
+<div class="content-body">
+    <div class="container-fluid">
+        <div class="row page-titles">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item active"><a href="javascript:void(0)">Tabla</a></li>
+                <li class="breadcrumb-item"><a href="javascript:void(0)">Docentes</a></li>
+            </ol>
+        </div>
+        <!-- row -->
+
+
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="card-title">Todos los Docentes</h4>
+                        <button [routerLink]= "'/admin/doc/create'">
+                            <mat-icon >group_add</mat-icon>
+                        </button>
+                        
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table  id="example2" class="display" style="width:100%">
+                                <thead>
+                                    <tr>
+                                        <th>Nombre</th>
+                                        <th>Apellidos</th>
+                                        <th>DNI</th>
+                                        <th>Email</th>
+                                        <th>Telefono</th>
+                                        <th>Opciones</th>
+                                    </tr>
+                                </thead>
+                                <tbody *ngIf="users" >
+                                    <tr *ngFor="let alumno of users">
+                                        <td>{{alumno.name}}</td>
+                                        <td>{{alumno.lastname}}</td>
+                                        <td>{{alumno.dni}}</td>
+                                        <td>{{alumno.email}}</td>
+                                        <td>{{alumno.phone}}</td>
+                                        <td>
+                                            <div class="btn-group dropdown">
+                                                <button type="button" class="btn btn-outline-secondary btn-sm dropdown-toggle" data-toggle="dropdown"
+                                                  aria-haspopup="true" aria-expanded="false">
+                                                  Opciones
+                                                </button>
+                                                <div class="dropdown-menu">
+                                                  <a [routerLink]="['/admin/alumnos/edit', alumno.id]" class="dropdown-item">Editar</a>
+                                                  <a (click)="delete(alumno)" class="dropdown-item" style="cursor:pointer ;">Eliminar</a>
+                                                </div>
+                                              </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

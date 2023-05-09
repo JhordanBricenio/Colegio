@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { CourseService } from 'src/app/services/course.service';
-import { DegreeService } from 'src/app/services/degree.service';
 
 @Component({
   selector: 'app-index',

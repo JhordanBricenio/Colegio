@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -46,6 +47,14 @@ import { ContactanosComponent } from './components/contactanos/contactanos.compo
 import { WorkshopComponent } from './components/workshop/workshop.component';
 import { DegreeComponent } from './components/private/degree/degree.component';
 import { CoursesComponent } from './components/private/courses/courses.component';
+import { IndexAumnosCrudComponent } from './components/private/alumnos/index-aumnos-crud/index-aumnos-crud.component';
+import { CreateAlumnosComponent } from './components/private/alumnos/create-alumnos/create-alumnos.component';
+import { IndexDocentesComponent } from './components/private/docentes/index-docentes/index-docentes.component';
+import { CreateDocentesComponent } from './components/private/docentes/create-docentes/create-docentes.component';
+import { IndexPostComponent } from './components/private/post/index-post/index-post.component';
+import { CreatePostComponent } from './components/private/post/create-post/create-post.component';
+import { IndexTagComponent } from './components/private/post/tag/index-tag/index-tag.component';
+import { CreateTagComponent } from './components/private/post/tag/create-tag/create-tag.component';
 
 
 
@@ -68,10 +77,20 @@ import { CoursesComponent } from './components/private/courses/courses.component
     WorkshopComponent,
     DegreeComponent,
     CoursesComponent,
+    IndexAumnosCrudComponent,
+    CreateAlumnosComponent,
+    IndexDocentesComponent,
+    CreateDocentesComponent,
+    IndexPostComponent,
+    CreatePostComponent,
+    IndexTagComponent,
+    CreateTagComponent,
 
   ],
   imports: [
     BrowserModule,
+    FormsModule,
+    ReactiveFormsModule,
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
