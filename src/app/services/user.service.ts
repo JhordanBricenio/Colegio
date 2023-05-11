@@ -17,4 +17,24 @@ export class UserService {
   getUsers():Observable<User[]>{
     return this._http.get<User[]>(this.url+'users');
   }
+
+  //createAlumnosAll()
+  createAlumnosAll(user:User):Observable<any>{
+    return this._http.post(this.url+'users',user);
+  }
+
+  //getAlumnoById()
+  getAlumnoById(id):Observable<User>{
+    return this._http.get<User>(this.url+'users/'+id);
+  }
+
+  //updateAlumno()
+  updateAlumno(user:User):Observable<any>{
+    return this._http.put(this.url+'users/'+user.id,user);
+  }
+
+  //deleteAlumno()
+  deleteAlumno(id):Observable<any>{
+    return this._http.delete(this.url+'users/'+id);
+  }
 }

@@ -18,32 +18,80 @@
 
                                 <div class="row">
                                     <div class="mb-3 col-md-6">
-                                        <label class="form-label">Nombres</label>
-                                        <input type="text" class="form-control" placeholder="name">
+                                        <mat-form-field class="example-full-width">
+                                            <mat-label>Nombres</mat-label>
+                                            <input matInput type="text" [(ngModel)]="value" autofocus name="value">
+                                            <button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
+                                              <mat-icon>close</mat-icon>
+                                            </button>
+                                          </mat-form-field>
                                     </div>
                                     <div class="mb-3 col-md-6">
-                                        <label class="form-label">Apellidos</label>
-                                        <input type="text" class="form-control" placeholder="lastname">
+                                        <mat-form-field class="example-full-width">
+                                            <mat-label>Apellidos</mat-label>
+                                            <input matInput type="text" [(ngModel)]="value"  name="value">
+                                            <button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
+                                              <mat-icon>close</mat-icon>
+                                            </button>
+                                          </mat-form-field>
+                                    </div>
+                                    <div class="mb-3 mt-2 col-md-6">
+                                        <mat-form-field class="example-full-width">
+                                            <mat-label>Email</mat-label>
+                                            <input  type="email" [(ngModel)]="docente.email" name="email"  matInput [formControl]="emailFormControl" [errorStateMatcher]="matcher"
+                                              placeholder="pat@example.com">
+                                            <mat-hint>¡Los errores aparecen al instante!</mat-hint>
+                                            <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+                                              Introduce una dirección de correo electrónico válida
+                                            </mat-error>
+                                            <mat-error *ngIf="emailFormControl.hasError('required')">
+                                              Email es <strong>requerido</strong>
+                                            </mat-error>
+                                          </mat-form-field>
                                     </div>
                                     <div class="mb-3 col-md-6">
-                                        <label class="form-label">Email</label>
-                                        <input type="email" class="form-control" placeholder="correo@ejemplo.com">
-                                    </div>
-                                    <div class="mb-3 col-md-2">
-                                        <label class="form-label">DNI</label>
-                                        <input type="text" class="form-control">
-                                    </div>
-                                    <!--<div class="mb-3 col-md-6">
-                                        <label class="form-label">Password</label>
-                                        <input type="password" class="form-control" placeholder="Password">
-                                    </div>-->
-                                    <div class="mb-3 col-md-6">
-                                        <label>Dirección</label>
-                                        <input type="text" class="form-control">
+                                        <mat-form-field class="example-full-width">
+                                            <mat-label>DNI</mat-label>
+                                            <input matInput placeholder="Ex. Pizza" value="Sushi">
+                                          </mat-form-field>
                                     </div>
                                     <div class="mb-3 col-md-6">
-                                        <label>Apoderado</label>
-                                        <input type="text" class="form-control">
+                                        <mat-form-field class="example-full-width">
+                                            <mat-label>Educación</mat-label>
+                                            <input matInput placeholder="Educación" value="Sushi">
+                                          </mat-form-field>
+                                    </div>
+                                    <div class="mb-3 col-md-6">
+                                        <mat-form-field class="example-full-width">
+                                            <mat-label>Dirección</mat-label>
+                                            <input matInput placeholder="Ex. Pizza" value="Sushi">
+                                          </mat-form-field>
+                                    </div>
+                                    <div class="mb-4 mt-3 col-md-6">
+                                        <mat-form-field class="example-full-width">
+                                            <mat-label>Contraseña</mat-label>
+                                            <input matInput required type="password" [(ngModel)]="docente.password" name="password"  [formControl]="passwordFormControl" [errorStateMatcher]="matcher">
+                                            <mat-error *ngIf="passwordFormControl.hasError('required')">
+                                              Contraseña es <strong>requerido</strong>
+                                            </mat-error>
+                                            <mat-hint align="start"><strong>Debe contener caracteres válidos</strong> </mat-hint>
+                                            <mat-hint align="end">La contraseña debe ser válida</mat-hint>
+                                          </mat-form-field>
+                                    </div>
+                                    <div class="mb-3 col-md-3">
+                                        <label>Sexo</label>
+                                        <select class="default-select form-control wide mb-3" style="display: none;">
+                                            <option>Masculino</option>
+                                            <option>Femenino</option>
+                                        </select>
+                                    </div>
+                                    <div class="mb-4 mt-2 col-md-3">
+                                        <mat-form-field class="example-full-width">
+                                            <mat-label>Telephone</mat-label>
+                                            <span matPrefix>+1 &nbsp;</span>
+                                            <input type="tel" matInput placeholder="555-555-1234">
+                                            <mat-icon matSuffix>mode_edit</mat-icon>
+                                          </mat-form-field>
                                     </div>
                                 </div>
                                 <button type="submit" class="btn btn-primary">Guardar</button>

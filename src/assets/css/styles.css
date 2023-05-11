@@ -309,6 +309,10 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
       font-size: 14px;
     }
 
+    th {
+      font-size: 14px;
+    }
+
 abbr[title],
 abbr[data-bs-original-title] {
   text-decoration: underline dotted;
@@ -437,7 +441,9 @@ caption {
 
 th {
   text-align: inherit;
-  text-align: -webkit-match-parent; }
+  text-align: -webkit-match-parent;
+
+}
 
 thead,
 tbody,

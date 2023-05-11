@@ -40,9 +40,11 @@ const routes: Routes = [
 
       { path: 'alumnos', component: IndexAumnosCrudComponent },
       { path: 'alum/create', component: CreateAlumnosComponent },
+      { path: 'alumnos/edit/:id', component: CreateAlumnosComponent },
 
       { path: 'docentes', component: IndexDocentesComponent },
       { path: 'doc/create', component: CreateDocentesComponent },
+      { path: 'docentes/edit/:id', component: CreateDocentesComponent },
 
       { path: 'post', component: IndexPostComponent },
       { path: 'post/create', component: CreatePostComponent },

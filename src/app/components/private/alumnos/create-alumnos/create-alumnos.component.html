@@ -14,39 +14,44 @@
                     </div>
                     <div class="card-body">
                         <div class="basic-form">
-                            <form>
-
+                            <form #registroForm="ngForm" (ngSubmit)="registro(registroForm)">
                                 <div class="row">
                                     <div class="mb-3 col-md-6">
                                         <label class="form-label">Nombres</label>
-                                        <input type="text" class="form-control" placeholder="name">
+                                        <input [(ngModel)]="alumno.name" name="name" required type="text" class="form-control" placeholder="name">
                                     </div>
                                     <div class="mb-3 col-md-6">
                                         <label class="form-label">Apellidos</label>
-                                        <input type="text" class="form-control" placeholder="lastname">
+                                        <input  [(ngModel)]="alumno.lastname" name="lastname" required type="text" class="form-control" placeholder="lastname">
                                     </div>
                                     <div class="mb-3 col-md-6">
                                         <label class="form-label">Email</label>
-                                        <input type="email" class="form-control" placeholder="correo@ejemplo.com">
+                                        <input  [(ngModel)]="alumno.email" name="email" type="email" class="form-control" placeholder="correo@ejemplo.com">
                                     </div>
                                     <div class="mb-3 col-md-2">
                                         <label class="form-label">DNI</label>
-                                        <input type="text" class="form-control">
+                                        <input  [(ngModel)]="alumno.dni" name="dni" required type="text" class="form-control">
                                     </div>
-                                    <!--<div class="mb-3 col-md-6">
-                                        <label class="form-label">Password</label>
-                                        <input type="password" class="form-control" placeholder="Password">
-                                    </div>-->
+                                    <div class="mb-3 col-md-6">
+                                        <label class="form-label">Teléfono</label>
+                                        <input  [(ngModel)]="alumno.phone" name="phone" type="number" class="form-control" placeholder="telefono">
+                                    </div>
                                     <div class="mb-3 col-md-6">
                                         <label>Dirección</label>
-                                        <input type="text" class="form-control">
+                                        <input [(ngModel)]="alumno.address" name="address" required type="text" class="form-control">
                                     </div>
                                     <div class="mb-3 col-md-6">
                                         <label>Apoderado</label>
-                                        <input type="text" class="form-control">
+                                        <input [(ngModel)]="alumno.father" name="father"  type="text" class="form-control">
                                     </div>
                                 </div>
-                                <button type="submit" class="btn btn-primary">Guardar</button>
+                                <button [routerLink]="['/admin/alumnos']" type="submit" class="btn btn-rounded btn-info m-2">Cancelar</button>
+                                <button (ngSubmit)="registro(registroForm)" type="submit" *ngIf="!alumno.id else elseBlock" class="btn btn-rounded btn-danger">Guardar</button>
+                                <ng-template #elseBlock>
+                                    <button  class="btn btn-rounded btn-warning" type="submit"
+                                    (ngSubmit)="update(registroForm)">Editar</button>
+                                </ng-template>
+
                             </form>
                         </div>
                     </div>

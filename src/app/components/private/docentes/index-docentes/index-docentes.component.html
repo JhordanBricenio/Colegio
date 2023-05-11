@@ -33,12 +33,12 @@
                                     </tr>
                                 </thead>
                                 <tbody *ngIf="users" >
-                                    <tr *ngFor="let alumno of users">
-                                        <td>{{alumno.name}}</td>
-                                        <td>{{alumno.lastname}}</td>
-                                        <td>{{alumno.dni}}</td>
-                                        <td>{{alumno.email}}</td>
-                                        <td>{{alumno.phone}}</td>
+                                    <tr *ngFor="let docente of users">
+                                        <td>{{docente.name}}</td>
+                                        <td>{{docente.lastname}}</td>
+                                        <td>{{docente.dni}}</td>
+                                        <td>{{docente.email}}</td>
+                                        <td>{{docente.phone}}</td>
                                         <td>
                                             <div class="btn-group dropdown">
                                                 <button type="button" class="btn btn-outline-secondary btn-sm dropdown-toggle" data-toggle="dropdown"
@@ -46,8 +46,8 @@
                                                   Opciones
                                                 </button>
                                                 <div class="dropdown-menu">
-                                                  <a [routerLink]="['/admin/alumnos/edit', alumno.id]" class="dropdown-item">Editar</a>
-                                                  <a (click)="delete(alumno)" class="dropdown-item" style="cursor:pointer ;">Eliminar</a>
+                                                  <a [routerLink]="['/admin/docentes/edit', docente.id]" class="dropdown-item">Editar</a>
+                                                  <a (click)="delete(docente)" class="dropdown-item" style="cursor:pointer ;">Eliminar</a>
                                                 </div>
                                               </div>
                                         </td>

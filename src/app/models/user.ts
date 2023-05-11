@@ -14,6 +14,7 @@ export class User {
     phone: string;
     address: string;
     photo: string;
+    father: string;
     roles: Role[]= [];
     payments: Payment[] = [];
     // tags: Tag[] = [];
