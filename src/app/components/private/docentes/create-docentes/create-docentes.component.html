@@ -14,13 +14,13 @@
                     </div>
                     <div class="card-body">
                         <div class="basic-form">
-                            <form>
+                            <form #registroForm="ngForm" (ngSubmit)="registro(registroForm)">
 
                                 <div class="row">
                                     <div class="mb-3 col-md-6">
                                         <mat-form-field class="example-full-width">
                                             <mat-label>Nombres</mat-label>
-                                            <input matInput type="text" [(ngModel)]="value" autofocus name="value">
+                                            <input matInput type="text" [(ngModel)]="docente.name" required name="name" autofocus name="value">
                                             <button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
                                               <mat-icon>close</mat-icon>
                                             </button>
@@ -29,7 +29,7 @@
                                     <div class="mb-3 col-md-6">
                                         <mat-form-field class="example-full-width">
                                             <mat-label>Apellidos</mat-label>
-                                            <input matInput type="text" [(ngModel)]="value"  name="value">
+                                            <input matInput type="text" [(ngModel)]="docente.lastname"  required name="lastname">
                                             <button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
                                               <mat-icon>close</mat-icon>
                                             </button>
@@ -38,7 +38,7 @@
                                     <div class="mb-3 mt-2 col-md-6">
                                         <mat-form-field class="example-full-width">
                                             <mat-label>Email</mat-label>
-                                            <input  type="email" [(ngModel)]="docente.email" name="email"  matInput [formControl]="emailFormControl" [errorStateMatcher]="matcher"
+                                            <input  type="email" [(ngModel)]="docente.email" name="email" required matInput [formControl]="emailFormControl" [errorStateMatcher]="matcher"
                                               placeholder="pat@example.com">
                                             <mat-hint>¡Los errores aparecen al instante!</mat-hint>
                                             <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
@@ -52,25 +52,25 @@
                                     <div class="mb-3 col-md-6">
                                         <mat-form-field class="example-full-width">
                                             <mat-label>DNI</mat-label>
-                                            <input matInput placeholder="Ex. Pizza" value="Sushi">
+                                            <input [(ngModel)]="docente.dni" name="dni" required matInput placeholder="7445" >
                                           </mat-form-field>
                                     </div>
                                     <div class="mb-3 col-md-6">
                                         <mat-form-field class="example-full-width">
                                             <mat-label>Educación</mat-label>
-                                            <input matInput placeholder="Educación" value="Sushi">
+                                            <input [(ngModel)]="docente.education" name="education" required matInput placeholder="Educación" >
                                           </mat-form-field>
                                     </div>
                                     <div class="mb-3 col-md-6">
                                         <mat-form-field class="example-full-width">
                                             <mat-label>Dirección</mat-label>
-                                            <input matInput placeholder="Ex. Pizza" value="Sushi">
+                                            <input [(ngModel)]="docente.address" name="address"  matInput  >
                                           </mat-form-field>
                                     </div>
                                     <div class="mb-4 mt-3 col-md-6">
                                         <mat-form-field class="example-full-width">
                                             <mat-label>Contraseña</mat-label>
-                                            <input matInput required type="password" [(ngModel)]="docente.password" name="password"  [formControl]="passwordFormControl" [errorStateMatcher]="matcher">
+                                            <input [(ngModel)]="docente.password" matInput required type="password" name="password"  [formControl]="passwordFormControl" [errorStateMatcher]="matcher">
                                             <mat-error *ngIf="passwordFormControl.hasError('required')">
                                               Contraseña es <strong>requerido</strong>
                                             </mat-error>
@@ -89,12 +89,17 @@
                                         <mat-form-field class="example-full-width">
                                             <mat-label>Telephone</mat-label>
                                             <span matPrefix>+1 &nbsp;</span>
-                                            <input type="tel" matInput placeholder="555-555-1234">
+                                            <input [(ngModel)]="docente.phone" required name="phone" type="tel" matInput placeholder="555-555-1234">
                                             <mat-icon matSuffix>mode_edit</mat-icon>
                                           </mat-form-field>
                                     </div>
                                 </div>
-                                <button type="submit" class="btn btn-primary">Guardar</button>
+                                <button [routerLink]="['/admin/docentes']" type="submit" class="btn btn-rounded btn-info m-2">Cancelar</button>
+                                <button (ngSubmit)="registro(registroForm)" type="submit" *ngIf="!docente.id else elseBlock" class="btn btn-rounded btn-danger">Guardar</button>
+                                <ng-template #elseBlock>
+                                    <button  class="btn btn-rounded btn-warning" type="submit"
+                                    (ngSubmit)="update(registroForm)">Editar</button>
+                                </ng-template>
                             </form>
                         </div>
                     </div>

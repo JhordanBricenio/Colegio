@@ -18,6 +18,7 @@ import { AsideComponent } from './components/private/aside/aside.component';
 import { BlogComponent } from './components/blog/blog.component';
 import { HttpClientModule } from '@angular/common/http';
 import { DatePipe } from '@angular/common';
+import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 
 
 
@@ -55,6 +56,12 @@ import { IndexPostComponent } from './components/private/post/index-post/index-p
 import { CreatePostComponent } from './components/private/post/create-post/create-post.component';
 import { IndexTagComponent } from './components/private/post/tag/index-tag/index-tag.component';
 import { CreateTagComponent } from './components/private/post/tag/create-tag/create-tag.component';
+import { CreateEventComponent } from './components/private/events/create-event/create-event.component';
+import { IndexEventsComponent } from './components/private/events/index-events/index-events.component';
+import { IndexCrudCoursesComponent } from './components/private/courses/index-crud-courses/index-crud-courses.component';
+import { CreateCrudComponent } from './components/private/courses/create-crud/create-crud.component';
+import { IndexMatriculaComponent } from './components/private/matricula/index-matricula/index-matricula.component';
+import { CreateMatriculaComponent } from './components/private/matricula/create-matricula/create-matricula.component';
 
 
 
@@ -85,6 +92,12 @@ import { CreateTagComponent } from './components/private/post/tag/create-tag/cre
     CreatePostComponent,
     IndexTagComponent,
     CreateTagComponent,
+  CreateEventComponent,
+  IndexEventsComponent,
+  IndexCrudCoursesComponent,
+  CreateCrudComponent,
+  IndexMatriculaComponent,
+  CreateMatriculaComponent,
 
   ],
   imports: [
@@ -114,7 +127,8 @@ import { CreateTagComponent } from './components/private/post/tag/create-tag/cre
     MatSelectModule,
     MatChipsModule,
     MatRippleModule,
-    MatTableModule
+    MatTableModule,
+    CKEditorModule
 
   ],
   providers: [

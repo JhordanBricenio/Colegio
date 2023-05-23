@@ -1,0 +1,96 @@
+<div class="content-body">
+    <div class="container-fluid">
+        <div class="row page-titles">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item active"><a href="javascript:void(0)">Registrar</a></li>
+                <li class="breadcrumb-item"><a href="javascript:void(0)">Evento</a></li>
+            </ol>
+        </div>
+        <div class="row">
+            <div class="col-12 col-lg-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="card-title">Formulario</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="basic-form">
+                            <form #registroForm="ngForm" (ngSubmit)="registro(registroForm)">
+
+                                <div class="row">
+                                    <div class="mb-3 col-md-6">
+                                        <mat-form-field class="example-full-width">
+                                            <mat-label>Nombre</mat-label>
+                                            <input matInput type="text" [(ngModel)]="evento.name" required name="name" autofocus>
+                                            <button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
+                                              <mat-icon>close</mat-icon>
+                                            </button>
+                                          </mat-form-field>
+                                    </div>
+                                    <div class="mb-3 col-md-3">
+                                        <mat-form-field appearance="fill" class="mt-4">
+                                            <mat-label>Estado</mat-label>
+                                            <mat-select [(ngModel)]="evento.status"  required name="status" >
+                                              <mat-option *ngFor="let estado of estados" [value]="estado.value">
+                                                {{estado.viewValue}}
+                                              </mat-option>
+                                            </mat-select>
+                                          </mat-form-field>
+                                    </div>
+                                   <div class="row">
+                                   </div>
+                                    <div class="mb-3 col-md-6">
+                                        <mat-form-field class="example-full-width">
+                                            <mat-label>Lugar</mat-label>
+                                            <input [(ngModel)]="evento.place" name="dni" required matInput  >
+                                          </mat-form-field>
+                                    </div>
+                                    <div class="mb-3 col-md-6">
+                                        <mat-form-field class="example-full-width">
+                                            <mat-label>Link</mat-label>
+                                            <input [(ngModel)]="evento.link" name="link" matInput placeholder="https://dompet.dex" >
+                                          </mat-form-field>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <mat-form-field appearance="fill">
+                                                <mat-label>Fecha Publicación</mat-label>
+                                                <input [(ngModel)]="evento.date" required name="date" matInput
+                                                    [matDatepicker]="picker">
+                                                <mat-hint>MM/DD/YYYY</mat-hint>
+                                                <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                                                <mat-datepicker #picker></mat-datepicker>
+                                            </mat-form-field>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="row">
+                                        <div class="col-xl-12 col-xxl-12">
+                                            <div class="card">
+                                                <div class="card-header">
+                                                    <h4 class="card-title">Descripción</h4>
+                                                </div>
+                                                <div class="card-body custom-ekeditor">
+                                                    <ckeditor [(ngModel)]="evento.description" name="description"
+                                                        [config]="{      
+                                                        height: '900px'
+                                                      }" [editor]="Editor"></ckeditor>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <button [routerLink]="['/admin/event']" type="submit" class="btn btn-rounded btn-info m-2">Cancelar</button>
+                                <button (ngSubmit)="registro(registroForm)" type="submit" *ngIf="!evento.id else elseBlock" class="btn btn-rounded btn-danger">Guardar</button>
+                                <ng-template #elseBlock>
+                                    <button (ngSubmit)="update(registroForm)"  class="btn btn-rounded btn-warning" type="submit" >Editar</button>
+                                </ng-template>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

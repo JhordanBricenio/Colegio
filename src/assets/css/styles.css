@@ -23602,7 +23602,7 @@ button {
   font-weight: 600; }
 
 .btn-sm, .btn-group-sm > .btn {
-  font-size: 0.813rem  !important;
+  font-size: 1.3rem  !important;
   padding: 0.625rem 1rem; }
 
 .btn-md {

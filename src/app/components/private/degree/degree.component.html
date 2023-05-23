@@ -7,10 +7,10 @@
   <div class="card  invoice-card"  [ngClass]="'bg-'+ item.color">
     <div class="card-body d-flex">
       <div class="icon me-3">
-        <mat-icon style="color: aliceblue;">school</mat-icon>        
+        <mat-icon [fontIcon]="item.icon"></mat-icon>
       </div>
       <div>
-        <h2 class="text-white invoice-num">2478</h2>
+        <h2 class="text-white invoice-num">{{item.description}}</h2>
         <span class="text-white fs-18">{{item.name}}</span>
       </div>
     </div>

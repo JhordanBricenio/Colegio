@@ -41,11 +41,12 @@ export class CreateAlumnosComponent {
 
   }
   registro(registroForm: any) {
-    console.log(this.alumno);
+    if( this.alumno.id!=null){
+      this.update(registroForm);
+    }
     if (registroForm.valid) {
       this.userService.createAlumnosAll(this.alumno).subscribe(
         response => {
-          console.log(response);
           Swal.fire({
             icon: 'success',
             title: `${response.mensaje}`,
@@ -66,7 +67,6 @@ export class CreateAlumnosComponent {
     if (registroForm.valid) {
       this.userService.updateAlumno(this.alumno).subscribe(
         response => {
-          console.log(response);
           Swal.fire({
             icon: 'success',
             title: 'Alumno actualizado correctamente'

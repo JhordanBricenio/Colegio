@@ -1,0 +1,53 @@
+<div class="content-body">
+    <div class="container-fluid">
+        <div class="row page-titles">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item active"><a href="javascript:void(0)">Tabla</a></li>
+                <li class="breadcrumb-item"><a href="javascript:void(0)">Eventos</a></li>
+            </ol>
+        </div>
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="card-title">Tabla eventos</h4>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered verticle-middle table-responsive-sm">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Nombre</th>
+                                    <th scope="col">Fecha</th>
+                                    <th scope="col">Lugar</th>
+                                    <th scope="col">Estado</th>
+                                    <th scope="col">Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let evento of events">
+                                    <td>{{evento.name}}</td>
+                                    <td>
+                                        {{evento.date}}
+                                    </td>
+                                    <td>{{evento.place}}</td>
+                                    <td><span class="badge badge-danger light">{{evento.status}}</span>
+                                    </td>
+                                    <td>
+                                        <span>
+                                            <a [routerLink]="['/admin/event/edit', evento.id]" class="me-4" data-bs-toggle="tooltip"
+                                                data-placement="top" title="Edit"><i
+                                                    class="fas fa-pencil-alt color-muted"></i> </a>
+                                            <a  (click)="delete(evento)" data-bs-toggle="tooltip" data-placement="top"
+                                                title="btn-close"><i class="fas fa-times color-danger"></i></a>
+                                        </span>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

@@ -19,6 +19,12 @@ import { CreateAlumnosComponent } from './components/private/alumnos/create-alum
 import { CreateDocentesComponent } from './components/private/docentes/create-docentes/create-docentes.component';
 import { CreatePostComponent } from './components/private/post/create-post/create-post.component';
 import { IndexPostComponent } from './components/private/post/index-post/index-post.component';
+import { IndexEventsComponent } from './components/private/events/index-events/index-events.component';
+import { CreateEventComponent } from './components/private/events/create-event/create-event.component';
+import { IndexCrudCoursesComponent } from './components/private/courses/index-crud-courses/index-crud-courses.component';
+import { CreateCrudComponent } from './components/private/courses/create-crud/create-crud.component';
+import { IndexMatriculaComponent } from './components/private/matricula/index-matricula/index-matricula.component';
+import { CreateMatriculaComponent } from './components/private/matricula/create-matricula/create-matricula.component';
 
 
 const routes: Routes = [
@@ -36,11 +42,15 @@ const routes: Routes = [
       { path: 'degrees', component: DegreeComponent },
       { path: 'courses', component: CoursesComponent },
       { path: 'courses/:id', component: CoursesComponent },
-      { path: 'alumnos/:id', component: IndexAlumnosComponent },
+      { path: 'course/:id', component: IndexAlumnosComponent },
 
       { path: 'alumnos', component: IndexAumnosCrudComponent },
       { path: 'alum/create', component: CreateAlumnosComponent },
       { path: 'alumnos/edit/:id', component: CreateAlumnosComponent },
+
+      { path: 'courseCrud', component: IndexCrudCoursesComponent },
+      { path: 'courseCrud/create', component: CreateCrudComponent },
+      { path: 'courseCrud/edit/:id', component: CreateCrudComponent },
 
       { path: 'docentes', component: IndexDocentesComponent },
       { path: 'doc/create', component: CreateDocentesComponent },
@@ -48,6 +58,18 @@ const routes: Routes = [
 
       { path: 'post', component: IndexPostComponent },
       { path: 'post/create', component: CreatePostComponent },
+      { path: 'post/edit/:id', component: CreatePostComponent },
+
+      { path: 'event', component: IndexEventsComponent },
+      { path: 'event/create', component: CreateEventComponent },
+      { path: 'event/edit/:id', component: CreateEventComponent },
+
+
+      { path: 'matricula', component: IndexMatriculaComponent },
+      { path: 'matricula/create', component: CreateMatriculaComponent },
+      { path: 'matricula/edit/:id', component: CreateMatriculaComponent },
+
+
       { path: '', component:WelcomeComponent}
     ]
     }

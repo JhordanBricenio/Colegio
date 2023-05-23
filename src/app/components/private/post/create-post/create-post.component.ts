@@ -7,6 +7,7 @@ import { Tag } from 'src/app/models/tag';
 import { AuthserviceService } from 'src/app/services/authservice.service';
 import { BlogService } from 'src/app/services/blog.service';
 import Swal from 'sweetalert2';
+import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 
 
 @Component({
@@ -16,19 +17,13 @@ import Swal from 'sweetalert2';
 })
 export class CreatePostComponent implements OnInit {
   
-  //public Editor = ClassicEditor;
-  content= new FormControl('', Validators.required);
-  getErrorMessage() {
-    if (this.content.hasError('required')) {
-      return 'You must enter a value';
-    }
-    return this.content.hasError('content') ? 'Not a valid content' : '';
-  }
+  public Editor = ClassicEditor;
+
 
   public id;
   public blog: Blog = new Blog();
   toppings = new FormControl('');
-  public toppingList: Tag[] = [];
+  public tags: Tag[] = [];
 
   constructor(private blogService: BlogService,
     private snack: MatSnackBar, private router: Router,
@@ -58,35 +53,58 @@ export class CreatePostComponent implements OnInit {
 
     this.blogService.getTags().subscribe(
       response => {
-        this.toppingList = response;
+        this.tags = response;
       }
     );
   }
 
   registro(registroForm: any) {
+    if( this.blog.id!=null){
+      this.update(registroForm);
+    }
     if (registroForm.valid) {
+      console.log(this.blog);
      // let username = this.authService.usuario.nombres + ' ' + this.authService.usuario.apellidos;
       //this.blog.author = username;
-
+      let username= "jhordan"
+      this.blog.author= username;
       this.blogService.savePost(this.blog).subscribe(
         response => {
           console.log(response);
           Swal.fire({
             icon: 'success',
-            title: 'Post creado con Ã©xito'
+            title: 'Post creado con Éxito'
           });
-          this.router.navigate(['/admin/indexPost']);
+          this.router.navigate(['/admin/post']);
         }
       );
     }
     else {
-      this.snack.open('Los datos del formulario no son vÃ¡lidos', 'Cerrar', {
+      this.snack.open('Los datos del formulario no son válidos', 'Cerrar', {
         duration: 3000
       });
     }
-
   }
-
+  update(registroForm: any) {
+    if (registroForm.valid) {
+      this.blogService.updateBlog(this.blog).subscribe(
+        response => {
+          console.log(response);
+          Swal.fire({
+            icon: 'success',
+            title: 'Post actualizado con exito con Éxito'
+          });
+          this.router.navigate(['/admin/post']);
+        }
+      );
+    }
+    else {
+      this.snack.open('Los datos del formulario no son válidos', 'Cerrar', {
+        duration: 3000
+      });
+    }
+  }
+  
   mostrarNombre(etiqueta?: Tag): string | undefined {
     return etiqueta ? etiqueta.name : undefined;
 

@@ -1,3 +1,4 @@
+import { Asistencia } from "./asistencia";
 import { Course } from "./course";
 import { Payment } from "./payment";
 import { Role } from "./role";
@@ -15,6 +16,7 @@ export class User {
     address: string;
     photo: string;
     father: string;
+    education:string;
     roles: Role[]= [];
     payments: Payment[] = [];
     // tags: Tag[] = [];
@@ -22,4 +24,9 @@ export class User {
      services: Servicio[] = [];
      courses:Course[] = [];
      workshops:Workshop[]= [];
+     asistencias: Asistencia[] = [];
+
+     constructor() {
+        this.asistencias = [];
+      }
 }

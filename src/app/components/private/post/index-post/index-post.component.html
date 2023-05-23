@@ -6,44 +6,52 @@
         <li class="breadcrumb-item"><a href="javascript:void(0)">Posts</a></li>
       </ol>
     </div>
-    <mat-card class="mt-5">
-      <ng-container *ngIf="posts.length>0">
-        <mat-list>
-          <div mat-subheader>
-            Todas los Posts
+    <div class="col-lg-12">
+      <div class="card">
+          <div class="card-header">
+              <h4 class="card-title">Posts</h4>
           </div>
-          <mat-list-item *ngFor="let item of posts">
-            <img *ngIf="item?.imagen" mat-list-avatar (click)="abrirModal(item)"
-              src="http://localhost:8080/api/upload/img/{{item.imagen}}" alt="..." style="cursor: pointer;">
-            <mat-icon *ngIf="!item?.imagen" mat-list-icon (click)="abrirModal(item)"
-              style="cursor: pointer;">category</mat-icon>
-            <div mat-line>{{item.titulo}}</div>
-            <div mat-line>{{item.fecha}}</div>
-            <mat-card-content>
-              <mat-card-actions>
-                <button class="m-2" [routerLink]="['/admin/editPost',item.id]" mat-flat-button
-                  color="primary">Editar</button>
-                <button name="eliminar" (click)="delete(item)" mat-fab color="warn">
-                  <mat-icon>auto_delete</mat-icon>
-                </button>
-              </mat-card-actions>
-            </mat-card-content>
-            <mat-divider></mat-divider>
-          </mat-list-item>
-        </mat-list>
-      </ng-container>
-      <ng-container *ngIf="posts.length==0">
-        <mat-list-item>
-          <mat-icon mat-list-icon>info</mat-icon>
-          <div mat-line>No hay posts</div>
-        </mat-list-item>
-      </ng-container>
-      <div class="container text-center mb-5">
-        <a routerLink="/admin/post/create" mat-mini-fab color="primary"
-          aria-label="Example icon button with a plus one icon">
-          <mat-icon mat-list-icon>library_add</mat-icon>
-        </a>
+          <div class="card-body">
+              <div class="table-responsive">
+                  <table class="table table-hover table-responsive-sm">
+                      <thead>
+                          <tr>
+                              <th>#</th>
+                              <th>Titulo</th>
+                              <th>Etiquetas</th>
+                              <th>Fecha</th>
+                              <th>Autor</th>
+                          </tr>
+                      </thead>
+                      <tbody>
+                          <tr *ngFor="let item of posts">
+                              <th>{{item.id}}</th>
+                              <td>{{item.title}}</td>
+                              <td >
+                                <span *ngFor="let item of item.tags" [ngClass]="'badge badge-secondary bg-'+item.color ">{{item.name}}</span>
+                              </td>
+                              <td><span class="text-muted">Posted </span> {{item.date | date:'mediumDate'}}</td>
+                              <td><span class="badge badge-warning ">{{item.author}}</span>
+                              </td>
+                              <td>
+                                <div class="btn-group dropdown">
+                                  <button type="button" class="btn btn-outline-secondary btn-sm dropdown-toggle" data-toggle="dropdown"
+                                    aria-haspopup="true" aria-expanded="false">
+                                    Opciones
+                                  </button>
+                                  <div class="dropdown-menu">
+                                    <a [routerLink]="['/admin/post/edit', item.id]" class="dropdown-item">Editar</a>
+                                    <a (click)="delete(item)" class="dropdown-item" style="cursor:pointer ;">Eliminar</a>
+                                  </div>
+                                </div>
+                              </td>
+                          </tr>
+                      </tbody>
+                  </table>
+              </div>
+          </div>
       </div>
-    </mat-card>
+      <!-- /# card -->
+  </div>
   </div>
 </div>

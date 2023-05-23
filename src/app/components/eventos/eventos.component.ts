@@ -1,5 +1,6 @@
 import { DatePipe } from '@angular/common';
 import { Component } from '@angular/core';
+import { Evento } from 'src/app/models/eventos';
 import { EventService } from 'src/app/services/event.service';
 
 
@@ -11,7 +12,7 @@ import { EventService } from 'src/app/services/event.service';
 })
 export class EventosComponent {
 
-  event: Event[];
+  event: Evento[];
 
   constructor(private eventService: EventService, public date: DatePipe) { }
 

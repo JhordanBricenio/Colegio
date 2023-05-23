@@ -12,46 +12,72 @@
       <div class="col-lg-12">
         <div class="card">
           <div class="card-header">
-            <h4 class="card-title" *ngIf="course">Cursos de {{course.name}}</h4>
+            <h4 class="card-title" *ngIf="course">Curso de {{course.name}}</h4>
           </div>
           <div class="card-body">
             <div class="table-responsive">
-              <table class="table table-responsive-md" *ngIf="course">
-                <thead>
-                  <tr>
-                    <th style="width:80px;"><strong>#</strong></th>
-                    <th><strong>NOMBRES</strong></th>
-                    <th><strong>APELLIDOS</strong></th>
-                    <th><strong>DNI</strong></th>
-                    <th><strong>ASISTENCIA</strong></th>
-                    <th></th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr *ngFor="let alumno of course.users">
-                    <td><strong>{{alumno.id}}</strong></td>
-                    <td>{{alumno.name}}</td>
-                    <td>{{alumno.lastname}}</td>
-                    <td>{{alumno.dni}}</td>
-                    <td>
-                      <form>
-                        <div class="mb-3 mb-0">
-                          <label class="radio-inline me-3"><input type="radio" name="optradio">
-                            <font _mstmutation="1" _msttexthash="104260" _msthash="312"> Asistió</font>
-                          </label>
-                          <label class="radio-inline me-3"><input type="radio" name="optradio">
-                            <font _mstmutation="1" _msttexthash="104429" _msthash="313"> Faltó</font>
-                          </label>
-                          <label class="radio-inline me-3"><input type="radio" name="optradio">
-                            <font _mstmutation="1" _msttexthash="104598" _msthash="314"> Tandanza</font>
-                          </label>
-                        </div>
-                      </form>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
+
+
+              <ng-container *ngIf="course.users.length>0">
+                <form #registroForm="ngForm" (ngSubmit)="registro(registroForm)">
+                  <table class="table table-responsive-md" *ngIf="course">
+                    <thead>
+                      <tr>
+                        <th style="width:80px;"><strong>#</strong></th>
+                        <th><strong>NOMBRES</strong></th>
+                        <th><strong>APELLIDOS</strong></th>
+                        <th><strong>DNI</strong></th>
+                        <th><strong>ASISTENCIA</strong></th>
+                        <th></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let alumno of course.users; let i = index">
+                        <td><strong>{{ i+1 }}</strong></td>
+                        <td>{{ alumno.name }}</td>
+                        <td>{{ alumno.lastname }}</td>
+                        <td>{{ alumno.dni }}</td>
+                        <td>
+                          <div class="mb-3 mb-0" *ngIf="alumno.asistencias">
+                            <label class="radio-inline me-3">
+                              <input type="radio" [(ngModel)]="alumno.asistencias[0].presente" [value]="0"
+                                name="presente{{alumno.id}}">
+                              Asistió
+                            </label>
+                            <label class="radio-inline me-3">
+                              <input type="radio" [(ngModel)]="alumno.asistencias[0].presente" [value]="1"
+                                name="presente{{alumno.id}}">
+
+                              Faltó
+                            </label>
+                            <label class="radio-inline me-3">
+                              <input type="radio" [(ngModel)]="alumno.asistencias[0].presente" [value]="2"
+                                name="presente{{alumno.id}}">
+
+                              Tardanza
+                            </label>
+                          </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <button type="submit" class="btn btn-primary">Guardar</button>
+                </form>
+              </ng-container>
+              <ng-container *ngIf="course.users.length<=0">
+                <div class="alert alert-danger ">
+                  <svg viewBox="0 0 24 24" width="24 " height="24" stroke="currentColor" stroke-width="2" fill="none"
+                    stroke-linecap="round" stroke-linejoin="round" class="me-2">
+                    <polygon points="7.86 2 16.14 2 22 7.86 22 16.14 16.14 22 7.86 22 2 16.14 2 7.86 7.86 2"></polygon>
+                    <line x1="15" y1="9" x2="9" y2="15"></line>
+                    <line x1="9" y1="9" x2="15" y2="15"></line>
+                  </svg>
+                  <strong>Error!</strong>No hay alumnos registrados en este curso.
+
+                </div>
+              </ng-container>
             </div>
+
           </div>
         </div>
       </div>

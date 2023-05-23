@@ -3,52 +3,50 @@
         <div class="row page-titles">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item active"><a href="javascript:void(0)">Registro</a></li>
-                <li class="breadcrumb-item"><a href="javascript:void(0)">Post</a></li>
+                <li class="breadcrumb-item"><a href="javascript:void(0)">Curso</a></li>
             </ol>
         </div>
         <mat-card>
             <div class="row">
                 <div class="col-md-8 offset-md-2">
                     <form #registroForm="ngForm" (ngSubmit)="registro(registroForm)">
+                        <mat-form-field class="mt-5 mr-2" appearance="fill">
+                            <mat-label>Nombre</mat-label>
+                            <input [(ngModel)]="course.name" type="text" name="name" required
+                                placeholder="Digite el nombre" matInput>
+                        </mat-form-field>
                         <mat-form-field class="mt-5" appearance="fill">
-                            <mat-label>Titulo</mat-label>
-                            <input [(ngModel)]="blog.title" type="text" name="titulo" required
+                            <mat-label>Descripción</mat-label>
+                            <input [(ngModel)]="course.description" type="text" name="description" required
                                 placeholder="Digite el título" matInput>
                         </mat-form-field>
 
                         <div class="row">
-                            <div class="col-xl-12 col-xxl-12">
-                                <div class="card">
-                                    <div class="card-header">
-                                        <h4 class="card-title">Contenido</h4>
-                                    </div>
-                                    <div class="card-body custom-ekeditor">
-                                        <ckeditor [(ngModel)]="blog.content" name="content"
-                                            [config]="{      
-                                            height: '900px'
-                                          }" [editor]="Editor"></ckeditor>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
                             <div class="col-md-6">
                                 <mat-form-field appearance="fill">
-                                    <mat-label>Fecha Publicación</mat-label>
-                                    <input [(ngModel)]="blog.date" required name="fechaInicio" matInput
-                                        [matDatepicker]="picker">
-                                    <mat-hint>MM/DD/YYYY</mat-hint>
-                                    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
-                                    <mat-datepicker #picker></mat-datepicker>
+                                    <mat-label>Créditos</mat-label>
+                                    <input [(ngModel)]="course.credits" type="number" required name="credits" matInput>
+                                </mat-form-field>
+                            </div>
+                            <div class="col-md-6">
+                                <mat-form-field appearance="fill">
+                                    <mat-label>Horas</mat-label>
+                                    <input [(ngModel)]="course.hours" type="number" required name="hours" matInput>
                                 </mat-form-field>
                             </div>
                         </div>
+                        <mat-form-field class="mt-5" appearance="fill">
+                            <mat-label>Semestre</mat-label>
+                            <input [(ngModel)]="course.semester" type="number" name="semester" required
+                                placeholder="Digite el título" matInput >
+                        </mat-form-field>
+
                         <mat-form-field appearance="fill">
-                            <mat-label>Etiquetas</mat-label>
-                            <mat-select [(ngModel)]="blog.tags" name="tags" [formControl]="toppings" multiple
+                            <mat-label>Grado</mat-label>
+                            <mat-select [(ngModel)]="course.degrees" name="degrees" [formControl]="toppings" multiple
                                 required>
-                                <mat-option *ngFor="let tag of tags"
-                                    [value]="tag">{{tag.name}}</mat-option>
+                                <mat-option *ngFor="let degree of degrees"
+                                    [value]="degree">{{degree.name}}</mat-option>
                                 <mat-select-trigger>
                                     {{toppings.value?.[0] || ''}}
                                     <span *ngIf="(toppings.value?.length || 0) > 1"
@@ -59,11 +57,12 @@
                                 </mat-select-trigger>
                             </mat-select>
                         </mat-form-field>
+
                         <div class="container text-center mt-5">
                             <button mat-flat-button color="primary" class="m-2"
-                                [routerLink]="['/admin/post']">Atrás</button>
+                                [routerLink]="['/admin/courseCrud']">Atrás</button>
                             <button mat-raised-button color="primary" type="submit"
-                                *ngIf="!blog.id else elseBlock">Guardar</button>
+                                *ngIf="!course.id else elseBlock">Guardar</button>
 
                             <ng-template #elseBlock>
                                 <button mat-raised-button color="primary" class="ml10"

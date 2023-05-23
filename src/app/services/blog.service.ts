@@ -24,9 +24,13 @@ export class BlogService {
 
   }
   getTags():Observable<any>{
-    return this._http.get<any>(this.url+'tag');
+    return this._http.get<any>(this.url+'tags');
   }
   getPorId(id):Observable<Blog>{
     return this._http.get<Blog>(this.url+'blog/'+id);
   }
+  updateBlog(post:Blog):Observable<any>{
+    return this._http.put(this.url+'blog/'+post.id,post);
+  }
+ 
 }
