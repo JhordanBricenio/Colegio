@@ -62,6 +62,11 @@ import { IndexCrudCoursesComponent } from './components/private/courses/index-cr
 import { CreateCrudComponent } from './components/private/courses/create-crud/create-crud.component';
 import { IndexMatriculaComponent } from './components/private/matricula/index-matricula/index-matricula.component';
 import { CreateMatriculaComponent } from './components/private/matricula/create-matricula/create-matricula.component';
+import { PaginatorPostComponent } from './components/private/post/paginator-post/paginator-post.component';
+import { DetallePostComponent } from './components/private/post/detalle-post/detalle-post.component';
+import { DetalleEventComponent } from './components/private/events/detalle-event/detalle-event.component';
+import { DetalleDocentesComponent } from './components/private/docentes/detalle-docentes/detalle-docentes.component';
+import { DetailMatriculaComponent } from './components/private/matricula/detail-matricula/detail-matricula.component';
 
 
 
@@ -98,6 +103,11 @@ import { CreateMatriculaComponent } from './components/private/matricula/create-
   CreateCrudComponent,
   IndexMatriculaComponent,
   CreateMatriculaComponent,
+  PaginatorPostComponent,
+  DetallePostComponent,
+  DetalleEventComponent,
+  DetalleDocentesComponent,
+  DetailMatriculaComponent,
 
   ],
   imports: [

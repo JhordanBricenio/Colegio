@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { User } from 'src/app/models/user';
+import { ModalService } from 'src/app/services/modal.service';
 import { UserService } from 'src/app/services/user.service';
 import Swal from 'sweetalert2';
 
@@ -11,14 +12,29 @@ import Swal from 'sweetalert2';
 export class IndexDocentesComponent {
 
   public users:User[] = [];
+  docenteSeleccionado: User = new User();
 
-  constructor(private serviceDocentes:UserService) { }
+  constructor(private serviceDocentes:UserService, private modalService:ModalService) { }
 
   ngOnInit(): void {
     this.serviceDocentes.getUsers().subscribe(
       users => this.users = users
     );
+
+    this.modalService.notificarUpload.subscribe(docente => {
+      this.users = this.users.map(docenteOriginal => {
+        if(docente.id == docenteOriginal.id){
+          docenteOriginal.photo = docente.photo;
+        }
+        return docenteOriginal;
+      })
+    } )
     
+  }
+  abrirModal(docente:User){
+    this.docenteSeleccionado = docente;    
+    this.modalService.abrirModal();    
+
   }
   delete(docente: User): void {
     const swalWithBootstrapButtons = Swal.mixin({

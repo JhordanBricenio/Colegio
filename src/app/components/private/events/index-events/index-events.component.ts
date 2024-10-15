@@ -2,6 +2,7 @@ import { DatePipe } from '@angular/common';
 import { Component } from '@angular/core';
 import { Evento } from 'src/app/models/eventos';
 import { EventService } from 'src/app/services/event.service';
+import { ModalService } from 'src/app/services/modal.service';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -12,22 +13,35 @@ import Swal from 'sweetalert2';
 export class IndexEventsComponent {
 
   events: Evento[];
+  eventSeleccionado: Evento;
 
-  constructor(private eventService: EventService, public date: DatePipe) { }
+  constructor(private eventService: EventService, public date: DatePipe,
+    private modalService: ModalService) { }
 
   ngOnInit(): void {
     this.eventService.getAllEvents().subscribe(
       response => {
-        console.log(response);
-        
         this.events = response;
-
       }
     );
 
+    this.modalService.notificarUpload.subscribe(evento => {
+      this.events = this.events.map(eventoOriginal => {
+        if (evento.id == eventoOriginal.id) {
+          eventoOriginal.image = evento.image;        
+        }
+        return eventoOriginal;
+      })
+    })
+
 
   }
-  
+  abrirModal(evento: Evento) {
+    this.eventSeleccionado = evento;
+    this.modalService.abrirModal();
+
+  }
+
   delete(evento: Evento): void {
     const swalWithBootstrapButtons = Swal.mixin({
       customClass: {

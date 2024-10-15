@@ -1,3 +1,4 @@
+<app-detalle-post *ngIf="postSeleccionado" [post]="postSeleccionado"></app-detalle-post>
 <div class="content-body">
   <div class="container-fluid">
     <div class="row page-titles">
@@ -8,50 +9,56 @@
     </div>
     <div class="col-lg-12">
       <div class="card">
-          <div class="card-header">
-              <h4 class="card-title">Posts</h4>
+        <div class="card-header">
+          <h4 class="card-title">Posts</h4>
+        </div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table table-hover table-responsive-sm">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Titulo</th>
+                  <th>Etiquetas</th>
+                  <th>Fecha</th>
+                  <th>Autor</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let item of posts">
+                  <th>
+                    <img *ngIf="item?.image" src="http://localhost:8080/api/upload/img/{{item.image}}" (click)="abrirModal(item)"  style="cursor: pointer;"
+                       class="card-img-top avatar" alt="No Image">
+                       <img *ngIf="!item?.image"  (click)="abrirModal(item)"  style="cursor: pointer;"
+                       class="card-img-top avatar" alt="No Image">
+                  </th>
+                  <td>{{item.title}}</td>
+                  <td>
+                    <span *ngFor="let item of item.tags"
+                      [ngClass]="'badge badge-secondary bg-'+item.color ">{{item.name}}</span>
+                  </td>
+                  <td><span class="text-muted">Posted </span> {{item.date | date:'mediumDate'}}</td>
+                  <td><span class="badge badge-warning ">{{item.author}}</span>
+                  </td>
+                  <td>
+                    <div class="btn-group dropdown">
+                      <button type="button" class="btn btn-outline-secondary btn-sm dropdown-toggle"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Opciones
+                      </button>
+                      <div class="dropdown-menu">
+                        <a [routerLink]="['/admin/post/edit', item.id]" class="dropdown-item">Editar</a>
+                        <a (click)="delete(item)" class="dropdown-item" style="cursor:pointer ;">Eliminar</a>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
           </div>
-          <div class="card-body">
-              <div class="table-responsive">
-                  <table class="table table-hover table-responsive-sm">
-                      <thead>
-                          <tr>
-                              <th>#</th>
-                              <th>Titulo</th>
-                              <th>Etiquetas</th>
-                              <th>Fecha</th>
-                              <th>Autor</th>
-                          </tr>
-                      </thead>
-                      <tbody>
-                          <tr *ngFor="let item of posts">
-                              <th>{{item.id}}</th>
-                              <td>{{item.title}}</td>
-                              <td >
-                                <span *ngFor="let item of item.tags" [ngClass]="'badge badge-secondary bg-'+item.color ">{{item.name}}</span>
-                              </td>
-                              <td><span class="text-muted">Posted </span> {{item.date | date:'mediumDate'}}</td>
-                              <td><span class="badge badge-warning ">{{item.author}}</span>
-                              </td>
-                              <td>
-                                <div class="btn-group dropdown">
-                                  <button type="button" class="btn btn-outline-secondary btn-sm dropdown-toggle" data-toggle="dropdown"
-                                    aria-haspopup="true" aria-expanded="false">
-                                    Opciones
-                                  </button>
-                                  <div class="dropdown-menu">
-                                    <a [routerLink]="['/admin/post/edit', item.id]" class="dropdown-item">Editar</a>
-                                    <a (click)="delete(item)" class="dropdown-item" style="cursor:pointer ;">Eliminar</a>
-                                  </div>
-                                </div>
-                              </td>
-                          </tr>
-                      </tbody>
-                  </table>
-              </div>
-          </div>
+        </div>
       </div>
       <!-- /# card -->
-  </div>
+    </div>
   </div>
 </div>

@@ -1,0 +1,20 @@
+.thead{
+    background-color: #3f51b5;
+    color: white;
+}
+mat-icon{
+    margin: 0 5px;
+    cursor: pointer;
+    background-color: white;
+}
+button{
+    margin: 0 5px;
+    cursor: pointer;
+    color:  #FF535B !important;
+    background-color: white;
+}
+
+ol li {
+    list-style: none;
+    width: 100%;
+}

@@ -1,1 +1,179 @@
-<p>create-matricula works!</p>
+<div class="content-body">
+    <div class="container-fluid">
+        <div class="row page-titles">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item active"><a href="javascript:void(0)">Registrar</a></li>
+                <li class="breadcrumb-item"><a href="javascript:void(0)">Matrícula</a></li>
+            </ol>
+        </div>
+        <div class="row">
+            <div class="col-12 col-lg-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="card-title">Formulario</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="basic-form">
+                            <form #registroForm="ngForm" (ngSubmit)="registro(registroForm)" >
+
+                                <div class="row">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <mat-form-field class="example-full-width">
+                                                <mat-label>Nombres</mat-label>
+                                                <input matInput type="text"   required name="name" autofocus name="value">
+                                                <button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
+                                                  <mat-icon>close</mat-icon>
+                                                </button>
+                                              </mat-form-field>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <mat-form-field class="example-full-width">
+                                                <mat-label>Apellidos</mat-label>
+                                                <input matInput type="text"  required name="lastname">
+                                                <button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
+                                                  <mat-icon>close</mat-icon>
+                                                </button>
+                                              </mat-form-field>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <mat-form-field class="example-full-width">
+                                                <mat-label>Nacimiento</mat-label>
+                                                <input matInput [matDatepicker]="picker"  name="birthdate" required>
+                                                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                                                <mat-datepicker #picker></mat-datepicker>
+                                              </mat-form-field>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <mat-form-field class="example-full-width">
+                                                <mat-label>Ingreso</mat-label>
+                                                <input matInput [matDatepicker]="picke"  name="admissiondate" required>
+                                                <mat-datepicker-toggle matSuffix [for]="picke"></mat-datepicker-toggle>
+                                                <mat-datepicker #picke></mat-datepicker>
+                                              </mat-form-field>
+                                        </div>
+                                        <div class="col-xl-4 col-xxl-6 col-6">
+                                            <div class="form-check custom-checkbox mb-3 checkbox-danger">
+                                                <input type="checkbox" class="form-check-input" checked="" id="customCheckBox5" required="">
+                                                <label class="form-check-label" for="customCheckBox5">Repetir Grado</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <mat-form-field class="example-full-width">
+                                            <mat-label>DNI</mat-label>
+                                            <input  name="dni" required matInput >
+                                          </mat-form-field>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <mat-form-field class="example-full-width" appearance="fill" >
+                                            <mat-label>Grado</mat-label>
+                                            <mat-select  required name="status" >
+                                              <mat-option>
+                                                Select 1
+                                              </mat-option>
+                                            </mat-select>
+                                          </mat-form-field>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <mat-form-field class="example-full-width" appearance="fill" >
+                                            <mat-label>Condición</mat-label>
+                                            <mat-select  required name="status" >
+                                              <mat-option >
+                                                Select 1
+
+                                              </mat-option>
+                                            </mat-select>
+                                          </mat-form-field>
+                                    </div>
+                                    
+                                    <!--Datos del apoderado-->
+
+                                    <div class="row mt-4">
+                                        <div class="col-md-6">
+                                            <label for="" class="">
+                                                <h4 class="title">Datos del apoderado *</h4>
+                                            </label>
+                                            <mat-form-field class="example-full-width">
+                                                <mat-label>Nombre del apoderado</mat-label>
+                                                <input matInput type="text"  required name="name">
+                                                <button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
+                                                  <mat-icon>close</mat-icon>
+                                                </button>
+                                              </mat-form-field>
+                                        </div>
+                                        <div class="col-md-6 mt-3">
+                                            <label class="m-3">¿Vive *?</label>
+                                            <label class="radio-inline me-3"><input type="radio" name="optradio"> Si</label>
+                                            <label class="radio-inline me-3"><input type="radio" name="optradio"> No</label>
+                                            <div class="form-check custom-checkbox checkbox-warning">
+                                                <input type="checkbox" class="form-check-input" checked="" id="customCheckBox6" required="">
+                                                <label class="form-check-label" for="customCheckBox6">Vive con el estudiante</label>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row mt-4">
+                                        <label for="" class="">
+                                            <h4 class="title">Datos laborales del estudiante *</h4>
+                                        </label>
+                                        <div class="col-md-4 mt-3">
+                                            <label class="m-3">¿Trabaja *?</label>
+                                            <label class="radio-inline me-3"><input type="radio" name="optradio1"> Si</label>
+                                            <label class="radio-inline me-3"><input type="radio" name="optradio1"> No</label>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <mat-form-field class="example-full-width" appearance="fill" >
+                                                <mat-label>Condición</mat-label>
+                                                <mat-select  required name="status" >
+                                                  <mat-option >
+                                                    Select 1
+    
+                                                  </mat-option>
+                                                </mat-select>
+                                              </mat-form-field>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <mat-form-field class="example-full-width">
+                                                <mat-label>Horas Semanales</mat-label>
+                                                <input type="number" name="dni" required matInput >
+                                              </mat-form-field>
+                                        </div>
+                                    </div>
+                                    <div class="row mt-4 ">
+                                        <label for="" class="">
+                                            <h4 class="title">Datos de procedencia del estudiante *</h4>
+                                        </label>
+                                        <div class="col-md-4">
+                                            <mat-form-field class="example-full-width" appearance="fill" >
+                                                <mat-label>Tipo de procedencia</mat-label>
+                                                <mat-select  required name="status" >
+                                                  <mat-option >
+                                                    Select 1
+    
+                                                  </mat-option>
+                                                </mat-select>
+                                              </mat-form-field>
+                                        </div>
+                                    </div>
+                                    <div class="row mt-4 mb-3">
+                                        <div class="col-md-6">
+                                            <mat-form-field class="example-full-width">
+                                                <mat-label>Observación</mat-label>
+                                                <input type="text" name="observation" required matInput placeholder="aaa" >
+                                              </mat-form-field>
+                                        </div>     
+                                    </div>  
+                                </div>
+                                <button [routerLink]="['/admin/matricula']" type="submit" class="btn btn-rounded btn-info m-2">Cancelar</button>
+                                <button (ngSubmit)="registro(registroForm)" type="submit" class="btn btn-rounded btn-danger">Guardar</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

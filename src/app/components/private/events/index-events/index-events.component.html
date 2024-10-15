@@ -1,3 +1,4 @@
+<app-detalle-event *ngIf="eventSeleccionado" [evento]="eventSeleccionado"></app-detalle-event>
 <div class="content-body">
     <div class="container-fluid">
         <div class="row page-titles">
@@ -38,7 +39,14 @@
                                                 data-placement="top" title="Edit"><i
                                                     class="fas fa-pencil-alt color-muted"></i> </a>
                                             <a  (click)="delete(evento)" data-bs-toggle="tooltip" data-placement="top"
-                                                title="btn-close"><i class="fas fa-times color-danger"></i></a>
+                                                title="btn-close"><i class="fas fa-times color-danger mr-2"></i></a>
+
+                                                <img *ngIf="evento?.image" src="http://localhost:8080/api/upload/img/{{evento.image}}" (click)="abrirModal(evento)"  style="cursor: pointer;"
+                                                class="card-img-top m-4" alt="No Image">
+                                                <img *ngIf="!evento?.image"  (click)="abrirModal(evento)"  style="cursor: pointer;"
+                                                class="card-img-top m-4" alt="No Image">
+
+                                            
                                         </span>
                                     </td>
                                 </tr>

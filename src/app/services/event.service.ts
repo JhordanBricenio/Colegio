@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { GLOBAL } from './GLOBAL';
-import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { HttpClient, HttpEvent, HttpRequest } from '@angular/common/http';
+import { Observable, catchError, throwError } from 'rxjs';
 import { Evento } from '../models/eventos';
 
 @Injectable({
@@ -35,5 +35,18 @@ export class EventService {
   deleteEvento(id):Observable<any>{
     return this._http.delete(this.url+'event/'+id);
   }
+  subirFoto(foto: File, id): Observable<HttpEvent<{}>> {
+    let formData = new FormData();
+    formData.append('file', foto);
+    formData.append('id', id.toString());
+    const req = new HttpRequest('POST', this.url + 'event/upload', formData,{reportProgress: true});
+    return this._http.request(req).pipe(
+       catchError(e => {
+          return throwError(()=>e);
+       })
+    );
+  
+
+ }
  
 }

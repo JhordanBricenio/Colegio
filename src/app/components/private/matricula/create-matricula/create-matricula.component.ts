@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { FormControl } from '@angular/forms';
+import { Licence } from 'src/app/models/licence';
 
 @Component({
   selector: 'app-create-matricula',
@@ -6,5 +8,20 @@ import { Component } from '@angular/core';
   styleUrls: ['./create-matricula.component.css']
 })
 export class CreateMatriculaComponent {
+
+  public matricula:Licence;
+  value = '';
+  hideRequiredControl = new FormControl(false);
+
+  constructor() {
+    this.matricula= new Licence();
+   }
+
+  ngOnInit(): void {
+    
+  }
+  registro(registroForm){
+    console.log(this.matricula);
+  }
 
 }

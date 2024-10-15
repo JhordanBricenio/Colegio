@@ -1,0 +1,85 @@
+<!--Ver todo el detalle de un producto-->
+<div class="content-body">
+    <div class="container-fluid">
+        <div class="row page-titles">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item active"><a [routerLink]="['/admin/products']">Tabla</a></li>
+                <li class="breadcrumb-item"><a href="javascript:void(0)">Detalle</a></li>
+            </ol>
+        </div>
+        <div class="card">
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered table-striped">
+                        <tbody>
+                            <tr>
+                                <th scope="row">ID:</th>
+                                <td>{{license.id}}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Costo:</th>
+                                <td>{{license.costo | currency:'USD'}}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Descuento:</th>
+                                <td>{{license.descuento}}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Inicio:</th>
+                                <td>{{license.fechaInicio}}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Fin:</th>
+                                <td>
+                                    {{license.fechaFin| date: 'dd/MM/YYYY' }}
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Sección:</th>
+                                <td>{{ license.seccion }}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Estado Pago:</th>
+                                <td>{{ license.statusPayment }}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Jornada:</th>
+                                <td>{{license.jornada}}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Estado Registro:</th>
+                                <td>{{ license.statusRegistration }}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Turno:</th>
+                                <td>{{ license.turno }}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">USUARIO:</th>
+                               
+                            </tr>
+                            <tr>
+                                <th scope="row">Nombre:</th>
+                                <td>{{ license.userDTO.name}}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Apellido:</th>
+                                <td>{{ license.userDTO.lastname }}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">DNI:</th>
+                                <td>{{ license.userDTO.dni }}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Email:</th>
+                                <td>{{ license.userDTO.email}}</td>
+                            </tr>
+                           
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+        </div>
+</div>
+

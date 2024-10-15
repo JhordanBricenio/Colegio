@@ -1,3 +1,4 @@
+<app-detalle-docentes *ngIf="docenteSeleccionado" [docente]="docenteSeleccionado"></app-detalle-docentes>
 <div class="content-body">
     <div class="container-fluid">
         <div class="row page-titles">
@@ -46,7 +47,14 @@
                                                         class="fas fa-pencil-alt color-muted"></i> </a>
                                                 <a (click)="delete(docente)" data-bs-toggle="tooltip"
                                                     data-placement="top" title="btn-close"><i
-                                                        class="fas fa-times color-danger"></i></a>
+                                                        class="fas fa-times color-danger" style="cursor: pointer;"></i></a>
+                                                <img *ngIf="docente?.photo"
+                                                    src="http://localhost:8080/api/upload/img/{{docente.photo}}"
+                                                    (click)="abrirModal(docente)" style="cursor: pointer;"
+                                                    class="card-img-top image m-4" alt="No photo">
+                                                <img *ngIf="!docente?.photo" (click)="abrirModal(docente)"
+                                                 src="http://localhost:8080/images/no-image.jpg"
+                                                    style="cursor: pointer;" class=" image card-img-top m-4" alt="Sin foto">
                                             </span>
                                         </td>
                                     </tr>

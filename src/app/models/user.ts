@@ -17,6 +17,7 @@ export class User {
     photo: string;
     father: string;
     education:string;
+    fecha_nacimiento: string;
     roles: Role[]= [];
     payments: Payment[] = [];
     // tags: Tag[] = [];

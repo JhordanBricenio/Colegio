@@ -25,6 +25,8 @@ import { IndexCrudCoursesComponent } from './components/private/courses/index-cr
 import { CreateCrudComponent } from './components/private/courses/create-crud/create-crud.component';
 import { IndexMatriculaComponent } from './components/private/matricula/index-matricula/index-matricula.component';
 import { CreateMatriculaComponent } from './components/private/matricula/create-matricula/create-matricula.component';
+import { DetallePostComponent } from './components/private/post/detalle-post/detalle-post.component';
+import { DetailMatriculaComponent } from './components/private/matricula/detail-matricula/detail-matricula.component';
 
 
 const routes: Routes = [
@@ -59,7 +61,7 @@ const routes: Routes = [
       { path: 'post', component: IndexPostComponent },
       { path: 'post/create', component: CreatePostComponent },
       { path: 'post/edit/:id', component: CreatePostComponent },
-
+      
       { path: 'event', component: IndexEventsComponent },
       { path: 'event/create', component: CreateEventComponent },
       { path: 'event/edit/:id', component: CreateEventComponent },
@@ -68,6 +70,7 @@ const routes: Routes = [
       { path: 'matricula', component: IndexMatriculaComponent },
       { path: 'matricula/create', component: CreateMatriculaComponent },
       { path: 'matricula/edit/:id', component: CreateMatriculaComponent },
+      { path: 'matricula/detail/:dni', component: DetailMatriculaComponent },
 
 
       { path: '', component:WelcomeComponent}
